@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="sub03">
     <h1>Sub03 {{ test2 }}</h1>
   </div>
 </template>
@@ -9,7 +9,7 @@ export default {
   components: {},
   data() {
     return {
-      test: '테스트입니다'
+      items: ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5', 'Item 6', 'Item 7', 'Item 8']
     };
   },
   computed: {

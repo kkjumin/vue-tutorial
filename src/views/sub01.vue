@@ -1,16 +1,22 @@
 <template>
   <div class="sub01">
     <h1>Sub01 page</h1>
+    <slickSort></slickSort>
   </div>
 </template>
 
 <script>
+import slickSort from '@/components/slickSort.vue';
+
 export default {
   props: {
     test: String
   },
-  created() {
-    console.log('### router params', this.test);
-  }
+  components: {
+    slickSort
+  },
+  created() {}
 };
 </script>
+
+<style scoped></style>

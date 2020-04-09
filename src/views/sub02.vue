@@ -1,5 +1,5 @@
 <template>
-  <div class="sub01">
-    <h1>Sub01 page</h1>
+  <div class="sub02">
+    <h1>Sub02 page</h1>
   </div>
 </template>
