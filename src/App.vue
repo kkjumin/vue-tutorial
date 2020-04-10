@@ -2,18 +2,25 @@
   <v-app id="inspire">
     <v-navigation-drawer v-model="drawer" app clipped>
       <v-list dense>
-        <a href="#none">
-          <v-list-item link>
-            <v-list-item-action>
-              <v-icon>mdi-view-dashboard</v-icon>
-            </v-list-item-action>
-            <v-list-item-content>
-              <v-list-item-title>Dashboard</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </a>
+        <v-list-item link @click="linkTo('Home')" :class="tabOn('Home')">
+          <v-list-item-action>
+            <v-icon>mdi-view-dashboard</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Dashboard</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
 
-        <v-list-item link>
+        <v-list-item link @click="linkTo('Sub01')" :class="tabOn('Sub01')">
+          <v-list-item-action>
+            <v-icon>mdi-view-dashboard</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Menu01</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-list-item link @click="linkTo('Sub02')" :class="tabOn('Sub02')">
           <v-list-item-action>
             <v-icon>mdi-view-dashboard</v-icon>
           </v-list-item-action>
@@ -22,30 +29,21 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item link>
+        <v-list-item link @click="linkTo('Sub03')" :class="tabOn('Sub03')">
           <v-list-item-action>
             <v-icon>mdi-view-dashboard</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Menu02</v-list-item-title>
+            <v-list-item-title>Menu03</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item link>
+        <v-list-item link @click="linkTo('Sub04')" :class="tabOn('Sub04')">
           <v-list-item-action>
             <v-icon>mdi-view-dashboard</v-icon>
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title>Menu04</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-
-        <v-list-item link>
-          <v-list-item-action>
-            <v-icon>mdi-view-dashboard</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>Menu05</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -73,11 +71,30 @@ export default {
   },
 
   data: () => ({
-    drawer: null
+    drawer: null,
+    selectedMenu: ''
   }),
 
-  created() {
-    this.$vuetify.theme.dark = true;
+  created() {},
+  computed: {
+    tabOn() {
+      return tabName => tabName === this.$route.name && 'tabOn';
+    }
+  },
+  methods: {
+    linkTo(params) {
+      // router.push는 promise를 반환하므로 catch로 잡아야됨
+      this.$router.push({ name: params }).catch(() => {});
+    }
   }
 };
 </script>
+
+<style>
+@import '../src/assets/css/reset.css';
+@import '../src/assets/css/basic.css';
+
+.tabOn {
+  background: #ddd;
+}
+</style>

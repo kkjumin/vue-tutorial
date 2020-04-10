@@ -1,11 +1,11 @@
 <template>
-  <div class="sub03">
-    <h1 class="contentTitle">Menu03 {{ test2 }}</h1>
+  <div class="sub04">
+    <h1 class="contentTitle">Menu04 {{ test2 }}</h1>
   </div>
 </template>
 <script>
 export default {
-  name: 'Menu03',
+  name: 'Menu04',
   components: {},
   data() {
     return {
@@ -20,4 +20,3 @@ export default {
   methods: {}
 };
 </script>
->

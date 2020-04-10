@@ -31,6 +31,12 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/sub03.vue'),
     props: true
   },
+  {
+    path: '/sub04',
+    name: 'Sub04',
+    component: () => import(/* webpackChunkName: "about" */ '../views/sub04.vue'),
+    props: true
+  },
 
 ];
 

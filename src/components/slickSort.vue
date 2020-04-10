@@ -27,7 +27,16 @@ export default {
   },
   data() {
     return {
-      items: ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5', 'Item 6', 'Item 7', 'Item 8']
+      items: [
+        'subItem 1',
+        'subItem 2',
+        'subItem 3',
+        'subItem 4',
+        'subItem 5',
+        'subItem 6',
+        'subItem 7',
+        'subItem 8'
+      ]
     };
   }
 };
@@ -39,6 +48,8 @@ export default {
   margin-top: 4px;
   margin-left: 10px;
   float: left;
+  color: #000;
+  line-height: 1;
 }
 .itemList img {
   float: left;
