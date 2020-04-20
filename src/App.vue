@@ -91,9 +91,8 @@ export default {
 </script>
 
 <style>
-@import '../src/assets/css/reset.css';
-@import '../src/assets/css/basic.css';
-
+@import url('../src/assets/css/reset.css');
+@import url('../src/assets/css/reset.css');
 .tabOn {
   background: #ddd;
 }
