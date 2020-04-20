@@ -1,23 +1,20 @@
 <template>
   <div class="sub03">
-    <h1 class="contentTitle">Menu03 {{ test2 }}</h1>
+    <h1 class="contentTitle">Dialog & Popup</h1>
+    <dia-log />
+    <div style="margin-top:20px"></div>
+    <pop-up />
   </div>
 </template>
 <script>
+import diaLog from '@/components/dialog.vue';
+import popUp from '@/components/popup.vue';
+
 export default {
   name: 'Menu03',
-  components: {},
-  data() {
-    return {
-      items: ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5', 'Item 6', 'Item 7', 'Item 8']
-    };
-  },
-  computed: {
-    test2() {
-      return this.$store.state.testState;
-    }
-  },
+  components: { diaLog, popUp },
+  data: () => ({}),
+  computed: {},
   methods: {}
 };
 </script>
->

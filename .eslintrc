@@ -13,6 +13,7 @@
     "comma-dangle": "off",
     "import/no-unresolved": "off",
     "max-len": "off",
-    "arrow-parens": "off"
+    "arrow-parens": "off",
+    "linebreak-style": 0
   }
 }

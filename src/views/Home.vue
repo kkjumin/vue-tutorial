@@ -1,5 +1,6 @@
 <template>
   <div class="Dashboard">
+    <h1 class="contentTitle">SlideMenu</h1>
     <SlideMenu />
   </div>
 </template>

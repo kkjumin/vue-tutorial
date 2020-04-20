@@ -1,6 +1,6 @@
 <template>
   <div class="menu01">
-    <h1 class="contentTitle">Menu01 page</h1>
+    <h1 class="contentTitle">SlickSort</h1>
     <slickSort></slickSort>
   </div>
 </template>

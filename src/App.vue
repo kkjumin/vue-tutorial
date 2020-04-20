@@ -7,7 +7,7 @@
             <v-icon>mdi-view-dashboard</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Dashboard</v-list-item-title>
+            <v-list-item-title>SlideMenu</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
@@ -16,7 +16,7 @@
             <v-icon>mdi-view-dashboard</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Menu01</v-list-item-title>
+            <v-list-item-title>SlickSort</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
@@ -25,7 +25,7 @@
             <v-icon>mdi-view-dashboard</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Menu02</v-list-item-title>
+            <v-list-item-title>StyleBinding</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
@@ -34,7 +34,7 @@
             <v-icon>mdi-view-dashboard</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Menu03</v-list-item-title>
+            <v-list-item-title>Dialog & Popup</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
