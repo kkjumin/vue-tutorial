@@ -43,7 +43,7 @@
             <v-icon>mdi-view-dashboard</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Menu04</v-list-item-title>
+            <v-list-item-title>Chart</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>

@@ -1,22 +1,33 @@
 <template>
   <div class="sub04">
-    <h1 class="contentTitle">Menu04 {{ test2 }}</h1>
+    <h1 class="contentTitle">Chart</h1>
+    <pie-chart />
+    <div style="margin-top:50px;"></div>
+    <line-chart />
+    <div style="margin-top:50px;"></div>
+    <bar-chart />
+    <div style="margin-top:50px;"></div>
+    <mixed-chart />
   </div>
 </template>
 <script>
+import lineChart from '@/components/lineChart.vue';
+import barChart from '@/components/barChart.vue';
+import pieChart from '@/components/pieChart.vue';
+import mixedChart from '@/components/mixedChart.vue';
+
 export default {
   name: 'Menu04',
-  components: {},
-  data() {
-    return {
-      items: ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5', 'Item 6', 'Item 7', 'Item 8']
-    };
+  components: {
+    lineChart,
+    barChart,
+    pieChart,
+    mixedChart
   },
-  computed: {
-    test2() {
-      return this.$store.state.testState;
-    }
-  },
+  data: () => ({}),
+
+  computed: {},
+  mounted() {},
   methods: {}
 };
 </script>
