@@ -1,6 +1,6 @@
 <template>
   <div class="menu01">
-    <h1 class="contentTitle">SlickSort</h1>
+    <h1>SlickSort</h1>
     <slickSort></slickSort>
   </div>
 </template>
@@ -9,7 +9,6 @@
 import slickSort from '@/components/slickSort.vue';
 
 export default {
-  name: 'Menu01',
   props: {
     test: String
   },

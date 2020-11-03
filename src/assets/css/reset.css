@@ -1,7 +1,10 @@
-a {
-  text-decoration: none;
+#inspire {
+  transform: rotate(0.01deg);
 }
-.contentTitle {
-  background: #eee;
-  margin-bottom: 10px;
+
+a,
+ul,
+li {
+  text-decoration: none;
+  list-style: none;
 }

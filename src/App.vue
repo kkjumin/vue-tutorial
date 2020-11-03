@@ -46,6 +46,15 @@
             <v-list-item-title>Chart</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
+
+        <v-list-item link @click="linkTo('Sub05')" :class="tabOn('Sub05')">
+          <v-list-item-action>
+            <v-icon>mdi-view-dashboard</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Memo</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
 
@@ -92,7 +101,7 @@ export default {
 
 <style>
 @import url('../src/assets/css/reset.css');
-@import url('../src/assets/css/reset.css');
+@import url('../src/assets/css/basic.css');
 .tabOn {
   background: #ddd;
 }

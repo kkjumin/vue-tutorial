@@ -8,7 +8,7 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home,
+    component: Home
   },
   {
     path: '/sub01',
@@ -37,13 +37,18 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/sub04.vue'),
     props: true
   },
-
+  {
+    path: '/sub05',
+    name: 'Sub05',
+    component: () => import(/* webpackChunkName: "about" */ '../views/sub05.vue'),
+    props: true
+  }
 ];
 
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes,
+  routes
 });
 
 export default router;

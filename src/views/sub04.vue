@@ -1,6 +1,6 @@
 <template>
   <div class="sub04">
-    <h1 class="contentTitle">Chart</h1>
+    <h1>Chart</h1>
     <pie-chart />
     <div style="margin-top:50px;"></div>
     <line-chart />
@@ -17,7 +17,6 @@ import pieChart from '@/components/pieChart.vue';
 import mixedChart from '@/components/mixedChart.vue';
 
 export default {
-  name: 'Menu04',
   components: {
     lineChart,
     barChart,

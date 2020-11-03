@@ -1,6 +1,6 @@
 <template>
   <div class="sub02">
-    <h1 class="contentTitle">StyleBinding</h1>
+    <h1>StyleBinding</h1>
     <div class="testbox" :style="{ background: selectedColor }"></div>
     <ul class="colorPic">
       <li
@@ -18,7 +18,6 @@
 
 <script>
 export default {
-  name: 'Menu02',
   data: () => ({
     selectedColor: 'red', // defualt: red
     colorList: [
