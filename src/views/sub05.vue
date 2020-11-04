@@ -1,6 +1,7 @@
 <template>
   <div class="sub05">
     <h1 class="contentTitle">Memo</h1>
+
     <div>
       <ul ref="target" style="padding:0;">
         <li
@@ -15,7 +16,9 @@
               `background:url('${item.snippet.thumbnails.high.url}') no-repeat center center;background-size:cover;`
             "
           ></div>
+
           <div class="blackBack"></div>
+
           <div class="btnPlay"></div>
         </li>
       </ul>
@@ -35,15 +38,22 @@
     </v-row>
   </div>
 </template>
+
 <script>
 import * as lovelyz from '../store/modules/lovelyz';
+
 import { TEST_API, VIDEO } from '../store/modules/lovelyz';
+
 export default {
   components: {},
+
   data: () => ({
     popup: false,
+
     selectedUrl: '',
+
     width: window.innerWidth > 1024 ? 1024 : window.innerWidth,
+
     height: window.innerHeight,
   }),
 
@@ -52,29 +62,39 @@ export default {
       videos: VIDEO,
     }),
   },
+
   created() {
     this.testApi();
   },
+
   mounted() {
     window.addEventListener('resize', this.handleResize);
   },
+
   beforeDestroy() {
     window.removeEventListener('resize', this.handleResize);
   },
+
   methods: {
     ...lovelyz.mapActions({
       testApi: TEST_API,
     }),
+
     playVideo(videoId) {
       this.popup = !this.popup;
+
       console.log(videoId);
+
       this.selectedUrl = videoId;
     },
+
     handleResize() {
       this.width = window.innerWidth;
+
       if (this.width > 1024) {
         this.width = 1024;
       }
+
       this.height = window.innerHeight;
     },
   },
@@ -84,20 +104,30 @@ export default {
 <style>
 .card_contents {
   position: relative;
+
   display: inline-block;
+
   box-sizing: border-box;
+
   margin: 10px;
+
   width: calc(100% / 3 - 20px);
+
   height: 17vw;
+
   border-radius: 10px;
+
   box-shadow: 5 9 black;
+
   box-shadow: 10px 5px 5px #ddd;
+
   cursor: pointer;
 }
 
 @media (max-width: 768px) {
   .card_contents {
     width: calc(100% / 2 - 20px);
+
     height: 26vw;
   }
 }
@@ -108,9 +138,12 @@ export default {
 
 .thumbNail {
   width: 100%;
+
   height: 100%;
+
   background-size: cover;
 }
+
 .blackBack {
   display: none;
 }
@@ -121,25 +154,42 @@ export default {
 
 .card_contents:hover .blackBack {
   position: absolute;
+
   top: 0;
+
   display: block;
+
   width: 100%;
+
   height: 100%;
+
   background: #000;
+
   opacity: 0.3;
 }
+
 .card_contents:hover .btnPlay {
   position: absolute;
+
   top: 50%;
+
   left: 50%;
+
   transform: translate(-50%, -50%);
+
   display: block;
+
   width: 30%;
+
   height: 30%;
+
   border-radius: 10px;
-  background: url('../../src/assets/img/playButton.png') no-repeat center center;
+
+  background: url('../../src/assets/img/playBtn.png') no-repeat center center;
+
   background-size: contain;
 }
+
 .v-dialog {
   box-shadow: none !important;
 }
