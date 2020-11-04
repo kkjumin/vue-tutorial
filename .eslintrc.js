@@ -1,7 +1,7 @@
 module.exports = {
   root: true,
   env: {
-    node: true
+    node: true,
   },
   extends: ['plugin:vue/essential', '@vue/prettier'],
   rules: {
@@ -14,9 +14,9 @@ module.exports = {
     'linebreak-style': ['error', 'windows'],
     'object-curly-newline': 'off',
     'global-require': 'off',
-    'func-names': 'off'
+    'func-names': 'off',
   },
   parserOptions: {
-    parser: 'babel-eslint'
-  }
+    parser: 'babel-eslint',
+  },
 };

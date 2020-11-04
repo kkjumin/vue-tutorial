@@ -13,7 +13,7 @@ export default {
           borderColor: 'red',
           backgroundColor: 'rgba(255,0,0,0)',
           lineTension: 0.1,
-          type: 'line'
+          type: 'line',
         },
         {
           label: 'Data Two',
@@ -21,17 +21,17 @@ export default {
           borderColor: 'blue',
           backgroundColor: 'rgba(0,0,255,0.1)',
           lineTension: 0.1,
-          borderWidth: 2
-        }
-      ]
+          borderWidth: 2,
+        },
+      ],
     },
     options: {
       responsive: true,
-      maintainAspectRatio: false
-    }
+      maintainAspectRatio: false,
+    },
   }),
   mounted() {
     this.renderChart(this.chartdata, this.options);
-  }
+  },
 };
 </script>

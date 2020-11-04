@@ -11,18 +11,18 @@ import slickSort from '@/components/slickSort.vue';
 
 export default {
   props: {
-    test: String
+    test: String,
   },
 
   components: {
-    slickSort
+    slickSort,
   },
 
   data() {
     return {};
   },
 
-  created() {}
+  created() {},
 };
 </script>
 

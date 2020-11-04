@@ -27,14 +27,14 @@ export default {
       { name: 'green', code: 'green' },
       { name: 'blue', code: 'blue' },
       { name: 'indigo', code: 'indigo' },
-      { name: 'purple', code: 'purple' }
-    ]
+      { name: 'purple', code: 'purple' },
+    ],
   }),
   methods: {
     changeColor(color) {
       this.selectedColor = color.code;
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped>

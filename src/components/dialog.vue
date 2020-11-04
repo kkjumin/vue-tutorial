@@ -33,7 +33,11 @@
                 <v-text-field label="Email*" required></v-text-field>
               </v-col>
               <v-col cols="12">
-                <v-text-field label="Password*" type="password" required></v-text-field>
+                <v-text-field
+                  label="Password*"
+                  type="password"
+                  required
+                ></v-text-field>
               </v-col>
               <v-col cols="12" sm="6">
                 <v-select
@@ -53,7 +57,7 @@
                     'Reading',
                     'Writing',
                     'Coding',
-                    'Basejump'
+                    'Basejump',
                   ]"
                   label="Interests"
                   multiple
@@ -75,7 +79,7 @@
 <script>
 export default {
   data: () => ({
-    dialog: false
+    dialog: false,
   }),
   methods: {
     submitF() {
@@ -85,7 +89,7 @@ export default {
     submitT() {
       console.log('Save');
       this.dialog = false;
-    }
-  }
+    },
+  },
 };
 </script>

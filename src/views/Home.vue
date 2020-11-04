@@ -12,8 +12,8 @@ import SlideMenu from '@/components/slideMenu.vue';
 export default {
   name: 'Dashboard',
   components: {
-    SlideMenu
+    SlideMenu,
   },
-  created() {}
+  created() {},
 };
 </script>

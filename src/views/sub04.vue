@@ -21,12 +21,12 @@ export default {
     lineChart,
     barChart,
     pieChart,
-    mixedChart
+    mixedChart,
   },
   data: () => ({}),
 
   computed: {},
   mounted() {},
-  methods: {}
+  methods: {},
 };
 </script>

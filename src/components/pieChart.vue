@@ -15,23 +15,23 @@ export default {
             'rgba(0,0,255,0.5)',
             'rgba(0,255,0,0.5)',
             'rgba(0,255,255,0.5)',
-            'rgba(255,0,255,0.5)'
+            'rgba(255,0,255,0.5)',
           ],
           lineTension: 0.1,
           borderWidth: 1,
           borderAlign: 'center',
-          weight: 1
-        }
-      ]
+          weight: 1,
+        },
+      ],
     },
     options: {
       responsive: true,
-      maintainAspectRatio: false
+      maintainAspectRatio: false,
       // animateRotate: true
-    }
+    },
   }),
   mounted() {
     this.renderChart(this.chartdata, this.options);
-  }
+  },
 };
 </script>

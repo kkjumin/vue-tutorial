@@ -23,7 +23,7 @@ import { SlickList, SlickItem } from 'vue-slicksort';
 export default {
   components: {
     SlickList,
-    SlickItem
+    SlickItem,
   },
   data() {
     return {
@@ -35,10 +35,10 @@ export default {
         'subItem 5',
         'subItem 6',
         'subItem 7',
-        'subItem 8'
-      ]
+        'subItem 8',
+      ],
     };
-  }
+  },
 };
 </script>
 

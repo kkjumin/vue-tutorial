@@ -11,7 +11,9 @@ export default {
       const q = '러블리즈';
       const part = 'snippet';
       const maxResults = 6;
-      const [youtube] = await Promise.all([GET(URL, { key, q, part, maxResults })]);
+      const [youtube] = await Promise.all([
+        GET(URL, { key, q, part, maxResults }),
+      ]);
       video = youtube;
     } catch (error) {
       console.warn(error.message, error);
@@ -19,5 +21,5 @@ export default {
       commit(VIDEO, video);
     }
     return video;
-  }
+  },
 };

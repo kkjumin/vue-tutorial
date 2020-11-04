@@ -6,12 +6,12 @@
 export default {
   name: 'currentTime',
   data: () => ({
-    date: ''
+    date: '',
   }),
   computed: {
     year() {
       return getDate => getDate;
-    }
+    },
   },
   created() {
     this.getYear();
@@ -21,7 +21,7 @@ export default {
       const YAER = new Date();
       console.log(YAER);
       this.date = YAER;
-    }
-  }
+    },
+  },
 };
 </script>

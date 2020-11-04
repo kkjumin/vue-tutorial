@@ -14,6 +14,6 @@ export default {
   components: { diaLog, popUp },
   data: () => ({}),
   computed: {},
-  methods: {}
+  methods: {},
 };
 </script>
