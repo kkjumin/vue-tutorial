@@ -1,6 +1,7 @@
 <template>
   <div class="menu01">
     <h1>SlickSort</h1>
+
     <slickSort></slickSort>
   </div>
 </template>
@@ -12,12 +13,15 @@ export default {
   props: {
     test: String
   },
+
   components: {
     slickSort
   },
+
   data() {
     return {};
   },
+
   created() {}
 };
 </script>
