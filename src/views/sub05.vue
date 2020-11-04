@@ -26,7 +26,9 @@
         <iframe
           :width="width"
           :height="width * 0.5625"
-          :src="`https://www.youtube.com/embed/${selectedUrl}?rel=0;amp;autoplay=1`"
+          :src="
+            `https://www.youtube.com/embed/${selectedUrl}?rel=0;amp;autoplay=1`
+          "
           frameborder="0"
         ></iframe>
       </v-dialog>
@@ -41,14 +43,14 @@ export default {
   data: () => ({
     popup: false,
     selectedUrl: '',
-    width: window.innerWidth,
-    height: window.innerHeight
+    width: window.innerWidth > 1024 ? 1024 : window.innerWidth,
+    height: window.innerHeight,
   }),
 
   computed: {
     ...lovelyz.mapState({
-      videos: VIDEO
-    })
+      videos: VIDEO,
+    }),
   },
   created() {
     this.testApi();
@@ -61,7 +63,7 @@ export default {
   },
   methods: {
     ...lovelyz.mapActions({
-      testApi: TEST_API
+      testApi: TEST_API,
     }),
     playVideo(videoId) {
       this.popup = !this.popup;
@@ -74,8 +76,8 @@ export default {
         this.width = 1024;
       }
       this.height = window.innerHeight;
-    }
-  }
+    },
+  },
 };
 </script>
 

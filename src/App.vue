@@ -76,26 +76,26 @@
 <script>
 export default {
   props: {
-    source: String
+    source: String,
   },
 
   data: () => ({
     drawer: null,
-    selectedMenu: ''
+    selectedMenu: '',
   }),
 
   created() {},
   computed: {
     tabOn() {
       return tabName => tabName === this.$route.name && 'tabOn';
-    }
+    },
   },
   methods: {
     linkTo(params) {
       // router.push는 promise를 반환하므로 catch로 잡아야됨
       this.$router.push({ name: params }).catch(() => {});
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -1,11 +1,11 @@
 module.exports = {
   semi: true,
-  printWidth: 100,
+  printWidth: 80,
   singleQuote: true,
   arrowParens: 'avoid',
   endOfLine: 'crlf',
   quoteProps: 'as-needed',
   tabWidth: 2,
   useTabs: false,
-  trailingComma: 'none'
+  trailingComma: 'all'
 };
