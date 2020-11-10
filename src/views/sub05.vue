@@ -28,13 +28,16 @@
     <v-row justify="center">
       <v-dialog v-model="popup" max-width="1024">
         <iframe
+          id="video"
           :width="width"
           :height="width * 0.5625"
           :src="
-            `https://www.youtube.com/embed/${selectedUrl}?rel=0;amp;autoplay=1`
+            `https://www.youtube.com/embed/${selectedUrl}?rel=0;amp;autoplay=1;`
           "
           frameborder="0"
+          allowfullscreen="true"
         ></iframe>
+        <div @click="stop()">stop</div>
       </v-dialog>
     </v-row>
 
@@ -105,6 +108,9 @@ export default {
       console.log(videoId);
       this.popup = !this.popup;
       this.selectedUrl = videoId;
+      document.getElementById(
+        'video',
+      ).src = `https://www.youtube.com/embed/${this.selectedUrl}?rel=0;amp;autoplay=1;`;
     },
 
     handleResize() {
@@ -125,6 +131,17 @@ export default {
     },
     pagePrev() {
       this.testApi(this.videos.prevPageToken);
+    },
+    stop() {
+      document.getElementById('video').src = '';
+    },
+  },
+  watch: {
+    popup() {
+      if (!this.popup) {
+        console.log('close');
+        this.stop();
+      }
     },
   },
 };
