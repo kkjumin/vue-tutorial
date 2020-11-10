@@ -3,12 +3,13 @@
     <h1 class="contentTitle">Memo</h1>
 
     <div>
-      <ul ref="target" style="padding:0;">
+      <ul id="videoContents" ref="target" style="padding:0;">
         <li
           v-for="(item, i) in videos.items"
           :key="i"
+          :style="`width:${contentWidth}px;height:${contentHeight}px;`"
           class="card_contents"
-          @click="playVideo(item.id.videoId)"
+          @click="playVideo(item.snippet.resourceId.videoId)"
         >
           <div
             class="thumbNail"
@@ -36,6 +37,13 @@
         ></iframe>
       </v-dialog>
     </v-row>
+
+    <div class="pagination">
+      <ul>
+        <li v-if="videos.prevPageToken" @click="pagePrev()">Prev</li>
+        <li v-if="videos.nextPageToken" @click="pageNext()">Next</li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -49,18 +57,28 @@ export default {
 
   data: () => ({
     popup: false,
-
     selectedUrl: '',
-
     width: window.innerWidth > 1024 ? 1024 : window.innerWidth,
-
-    height: window.innerHeight,
+    areaWidth: null,
   }),
 
   computed: {
     ...lovelyz.mapState({
       videos: VIDEO,
     }),
+    contentWidth() {
+      let conwidth;
+      if (this.width < 768) {
+        conwidth = this.areaWidth / 2 - 21;
+      } else {
+        conwidth = this.areaWidth / 3 - 21;
+      }
+
+      return parseInt(conwidth.toFixed(0));
+    },
+    contentHeight() {
+      return this.contentWidth * 0.5625;
+    },
   },
 
   created() {
@@ -68,11 +86,14 @@ export default {
   },
 
   mounted() {
+    this.areaWidth = document.getElementById('videoContents').offsetWidth;
     window.addEventListener('resize', this.handleResize);
+    window.addEventListener('resize', this.handleResize2);
   },
 
   beforeDestroy() {
     window.removeEventListener('resize', this.handleResize);
+    window.removeEventListener('resize', this.handleResize2);
   },
 
   methods: {
@@ -81,10 +102,8 @@ export default {
     }),
 
     playVideo(videoId) {
-      this.popup = !this.popup;
-
       console.log(videoId);
-
+      this.popup = !this.popup;
       this.selectedUrl = videoId;
     },
 
@@ -97,6 +116,16 @@ export default {
 
       this.height = window.innerHeight;
     },
+    handleResize2() {
+      this.areaWidth = document.getElementById('videoContents').offsetWidth;
+    },
+
+    pageNext() {
+      this.testApi(this.videos.nextPageToken);
+    },
+    pagePrev() {
+      this.testApi(this.videos.prevPageToken);
+    },
   },
 };
 </script>
@@ -104,24 +133,16 @@ export default {
 <style>
 .card_contents {
   position: relative;
-
   display: inline-block;
-
   box-sizing: border-box;
-
   margin: 10px;
-
   width: calc(100% / 3 - 20px);
-
   height: 17vw;
-
   border-radius: 10px;
-
   box-shadow: 5 9 black;
-
   box-shadow: 10px 5px 5px #ddd;
-
   cursor: pointer;
+  transition: 0.3s;
 }
 
 @media (max-width: 768px) {
@@ -192,5 +213,21 @@ export default {
 
 .v-dialog {
   box-shadow: none !important;
+}
+
+.pagination {
+  width: 100%;
+  text-align: center;
+}
+.pagination li {
+  display: inline-block;
+  font-size: 1.5em;
+  margin: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.pagination li:hover {
+  font-weight: bold;
 }
 </style>

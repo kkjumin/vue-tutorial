@@ -2,17 +2,25 @@ import { TEST_API, VIDEO } from './types';
 import { GET } from '@/utils';
 
 export default {
-  [TEST_API]: async ({ commit }) => {
+  [TEST_API]: async ({ commit }, payload) => {
     let video = [];
     try {
-      // AIzaSyBDXWtLp8zEoynepi5rIvlC9XGONbBRDyo
-      const URL = 'https://www.googleapis.com/youtube/v3/search';
-      const key = 'AIzaSyBDXWtLp8zEoynepi5rIvlC9XGONbBRDyo';
-      const q = '러블리즈';
+      const URL = 'https://www.googleapis.com/youtube/v3/playlistItems';
+      // const key = 'AIzaSyBDXWtLp8zEoynepi5rIvlC9XGONbBRDyo'; //1번키
+      const key = 'AIzaSyBC8wmueFWt60S1Ykx9jXbU8p_iodHR6Hk'; // 2번키
       const part = 'snippet';
-      const maxResults = 6;
+      const playlistId = 'PLiJaGo_6yBJ7suLWNNr7lD7I9JlKbNhCh';
+      const maxResults = 12;
+      const pageToken = payload;
+
       const [youtube] = await Promise.all([
-        GET(URL, { key, q, part, maxResults }),
+        GET(URL, {
+          key,
+          part,
+          playlistId,
+          maxResults,
+          pageToken,
+        }),
       ]);
       video = youtube;
     } catch (error) {
