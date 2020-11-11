@@ -42,11 +42,11 @@ const routes = [
     meta: { name: 'Chart' },
   },
   {
-    path: '/Memo',
-    name: 'Memo',
+    path: '/Video',
+    name: 'Video',
     component: () => import('../views/sub05.vue'),
     props: true,
-    meta: { name: 'Memo' },
+    meta: { name: 'Video' },
   },
   {
     path: '/Photo',

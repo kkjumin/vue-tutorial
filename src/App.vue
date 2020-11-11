@@ -11,7 +11,7 @@
           :key="i"
         >
           <v-list-item-action>
-            <v-icon>mdi-view-dashboard</v-icon>
+            <v-icon>{{ menu.icon }}</v-icon>
           </v-list-item-action>
 
           <v-list-item-content>
@@ -32,7 +32,7 @@
     </v-content>
 
     <v-footer app>
-      <span>&copy; 2020</span>
+      <span>&copy; 2020 Jumin</span>
     </v-footer>
   </v-app>
 </template>
@@ -47,13 +47,13 @@ export default {
     drawer: null,
     selectedMenu: '',
     sideMenu: [
-      { name: 'Home' },
-      { name: 'SlickSort' },
-      { name: 'StyleBinding' },
-      { name: 'DialogPopup' },
-      { name: 'Chart' },
-      { name: 'Memo' },
-      { name: 'Photo' },
+      { name: 'Home', icon: 'mdi-home' },
+      { name: 'SlickSort', icon: 'mdi-sort' },
+      { name: 'StyleBinding', icon: 'mdi-palette' },
+      { name: 'DialogPopup', icon: 'mdi-window-restore' },
+      { name: 'Chart', icon: 'mdi-chart-bar' },
+      { name: 'Video', icon: 'mdi-youtube' },
+      { name: 'Photo', icon: 'mdi-image-multiple' },
     ],
   }),
 
