@@ -2,63 +2,20 @@
   <v-app id="inspire">
     <v-navigation-drawer v-model="drawer" app clipped>
       <v-list dense>
-        <v-list-item link @click="linkTo('Home')" :class="tabOn('Home')">
+        <!-- 사이드 메뉴 -->
+        <v-list-item
+          v-for="(menu, i) in sideMenu"
+          link
+          @click="linkTo(menu.name)"
+          :class="tabOn(menu.name)"
+          :key="i"
+        >
           <v-list-item-action>
             <v-icon>mdi-view-dashboard</v-icon>
           </v-list-item-action>
 
           <v-list-item-content>
-            <v-list-item-title>SlideMenu</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-
-        <v-list-item link @click="linkTo('Sub01')" :class="tabOn('Sub01')">
-          <v-list-item-action>
-            <v-icon>mdi-view-dashboard</v-icon>
-          </v-list-item-action>
-
-          <v-list-item-content>
-            <v-list-item-title>SlickSort</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-
-        <v-list-item link @click="linkTo('Sub02')" :class="tabOn('Sub02')">
-          <v-list-item-action>
-            <v-icon>mdi-view-dashboard</v-icon>
-          </v-list-item-action>
-
-          <v-list-item-content>
-            <v-list-item-title>StyleBinding</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-
-        <v-list-item link @click="linkTo('Sub03')" :class="tabOn('Sub03')">
-          <v-list-item-action>
-            <v-icon>mdi-view-dashboard</v-icon>
-          </v-list-item-action>
-
-          <v-list-item-content>
-            <v-list-item-title>Dialog & Popup</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-
-        <v-list-item link @click="linkTo('Sub04')" :class="tabOn('Sub04')">
-          <v-list-item-action>
-            <v-icon>mdi-view-dashboard</v-icon>
-          </v-list-item-action>
-
-          <v-list-item-content>
-            <v-list-item-title>Chart</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-
-        <v-list-item link @click="linkTo('Sub05')" :class="tabOn('Sub05')">
-          <v-list-item-action>
-            <v-icon>mdi-view-dashboard</v-icon>
-          </v-list-item-action>
-
-          <v-list-item-content>
-            <v-list-item-title>Memo</v-list-item-title>
+            <v-list-item-title>{{ menu.name }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -88,8 +45,16 @@ export default {
 
   data: () => ({
     drawer: null,
-
     selectedMenu: '',
+    sideMenu: [
+      { name: 'Home' },
+      { name: 'SlickSort' },
+      { name: 'StyleBinding' },
+      { name: 'DialogPopup' },
+      { name: 'Chart' },
+      { name: 'Memo' },
+      { name: 'Photo' },
+    ],
   }),
 
   created() {},
@@ -103,7 +68,6 @@ export default {
   methods: {
     linkTo(params) {
       // router.push는 promise를 반환하므로 catch로 잡아야됨
-
       this.$router.push({ name: params }).catch(() => {});
     },
   },

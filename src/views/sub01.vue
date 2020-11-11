@@ -1,6 +1,6 @@
 <template>
   <div class="menu01">
-    <h1>SlickSort</h1>
+    <h1>{{ this.$route.name }}</h1>
 
     <slickSort></slickSort>
   </div>

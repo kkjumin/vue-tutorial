@@ -1,6 +1,6 @@
 <template>
   <div class="sub04">
-    <h1>Chart</h1>
+    <h1>{{ this.$route.name }}</h1>
     <pie-chart />
     <div style="margin-top:50px;"></div>
     <line-chart />

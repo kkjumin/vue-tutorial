@@ -1,6 +1,6 @@
 <template>
   <div class="sub02">
-    <h1>StyleBinding</h1>
+    <h1>{{ this.$route.name }}</h1>
     <div class="testbox" :style="{ background: selectedColor }"></div>
     <ul class="colorPic">
       <li

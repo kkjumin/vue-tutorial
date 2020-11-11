@@ -1,6 +1,6 @@
 <template>
   <div class="sub05">
-    <h1 class="contentTitle">Memo</h1>
+    <h1>{{ this.$route.name }}</h1>
 
     <div>
       <ul id="videoContents" ref="target" style="padding:0;">

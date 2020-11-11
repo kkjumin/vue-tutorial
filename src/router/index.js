@@ -11,42 +11,49 @@ const routes = [
     component: Home,
   },
   {
-    path: '/sub01',
-    name: 'Sub01',
+    path: '/SlickSort',
+    name: 'SlickSort',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ '../views/sub01.vue'),
+    component: () => import('../views/sub01.vue'),
     props: true,
+    meta: { name: 'SlickSort' },
   },
   {
-    path: '/sub02',
-    name: 'Sub02',
-    component: () =>
-      import(/* webpackChunkName: "about" */ '../views/sub02.vue'),
+    path: '/StyleBinding',
+    name: 'StyleBinding',
+    component: () => import('../views/sub02.vue'),
     props: true,
+    meta: { name: 'StyleBinding' },
   },
   {
-    path: '/sub03',
-    name: 'Sub03',
-    component: () =>
-      import(/* webpackChunkName: "about" */ '../views/sub03.vue'),
+    path: '/DialogPopup',
+    name: 'DialogPopup',
+    component: () => import('../views/sub03.vue'),
     props: true,
+    meta: { name: 'DialogPopup' },
   },
   {
-    path: '/sub04',
-    name: 'Sub04',
-    component: () =>
-      import(/* webpackChunkName: "about" */ '../views/sub04.vue'),
+    path: '/Chart',
+    name: 'Chart',
+    component: () => import('../views/sub04.vue'),
     props: true,
+    meta: { name: 'Chart' },
   },
   {
-    path: '/sub05',
-    name: 'Sub05',
-    component: () =>
-      import(/* webpackChunkName: "about" */ '../views/sub05.vue'),
+    path: '/Memo',
+    name: 'Memo',
+    component: () => import('../views/sub05.vue'),
     props: true,
+    meta: { name: 'Memo' },
+  },
+  {
+    path: '/Photo',
+    name: 'Photo',
+    component: () => import('../views/sub06.vue'),
+    props: true,
+    meta: { name: 'Photo' },
   },
 ];
 
