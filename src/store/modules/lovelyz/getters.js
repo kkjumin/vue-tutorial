@@ -1,7 +1,7 @@
-import { TEST_API, VIDEO } from './types';
+import { YOUTUBE_PLAYLIST, VIDEO } from './types';
 
 export default {
   /** 공통 */
-  [TEST_API]: state => state[TEST_API],
+  [YOUTUBE_PLAYLIST]: state => state[YOUTUBE_PLAYLIST],
   [VIDEO]: state => state[VIDEO],
 };

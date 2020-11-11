@@ -1,8 +1,8 @@
-import { TEST_API, VIDEO } from './types';
+import { YOUTUBE_PLAYLIST, VIDEO } from './types';
 import { GET } from '@/utils';
 
 export default {
-  [TEST_API]: async ({ commit }, payload) => {
+  [YOUTUBE_PLAYLIST]: async ({ commit }, payload) => {
     let video = [];
     try {
       const URL = 'https://www.googleapis.com/youtube/v3/playlistItems';

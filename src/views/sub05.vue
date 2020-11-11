@@ -37,7 +37,6 @@
           frameborder="0"
           allowfullscreen="true"
         ></iframe>
-        <div @click="stop()">stop</div>
       </v-dialog>
     </v-row>
 
@@ -53,7 +52,7 @@
 <script>
 import * as lovelyz from '../store/modules/lovelyz';
 
-import { TEST_API, VIDEO } from '../store/modules/lovelyz';
+import { YOUTUBE_PLAYLIST, VIDEO } from '../store/modules/lovelyz';
 
 export default {
   components: {},
@@ -85,7 +84,7 @@ export default {
   },
 
   created() {
-    this.testApi();
+    this.youtubePlayList();
   },
 
   mounted() {
@@ -101,16 +100,16 @@ export default {
 
   methods: {
     ...lovelyz.mapActions({
-      testApi: TEST_API,
+      youtubePlayList: YOUTUBE_PLAYLIST,
     }),
 
     playVideo(videoId) {
-      console.log(videoId);
-      this.popup = !this.popup;
+      this.popup = true;
+      let video = document.getElementById('video');
       this.selectedUrl = videoId;
-      document.getElementById(
-        'video',
-      ).src = `https://www.youtube.com/embed/${this.selectedUrl}?rel=0;amp;autoplay=1;`;
+      if (video) {
+        video.src = `https://www.youtube.com/embed/${this.selectedUrl}?rel=0;amp;autoplay=1;`;
+      }
     },
 
     handleResize() {
@@ -127,10 +126,10 @@ export default {
     },
 
     pageNext() {
-      this.testApi(this.videos.nextPageToken);
+      this.youtubePlayList(this.videos.nextPageToken);
     },
     pagePrev() {
-      this.testApi(this.videos.prevPageToken);
+      this.youtubePlayList(this.videos.prevPageToken);
     },
     stop() {
       document.getElementById('video').src = '';
@@ -139,7 +138,7 @@ export default {
   watch: {
     popup() {
       if (!this.popup) {
-        console.log('close');
+        console.log('Popup Close');
         this.stop();
       }
     },
