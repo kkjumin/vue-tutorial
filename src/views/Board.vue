@@ -1,7 +1,6 @@
 <template>
   <div class="sub05">
     <h1>{{ this.$route.name }}</h1>
-
     <!-- 게시판 폼 -->
     <board-form v-if="write" :write="writeOn" />
     <!-- 글 내용 상세보기 -->

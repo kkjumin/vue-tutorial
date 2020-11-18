@@ -19,9 +19,7 @@ export default {
     if (localStorage.boardList) {
       boardList = JSON.parse(localStorage.boardList);
     }
-
     boardList.unshift(payload);
-
     localStorage.boardList = JSON.stringify(boardList);
     commit(GET_BOARD, boardList);
     dispatch(GET_BOARD);
