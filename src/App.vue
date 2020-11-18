@@ -24,7 +24,8 @@
     <v-app-bar app clipped-left>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
 
-      <v-toolbar-title>Application</v-toolbar-title>
+      <v-toolbar-title>Application </v-toolbar-title>
+      <Time />
     </v-app-bar>
 
     <v-content>
@@ -38,7 +39,11 @@
 </template>
 
 <script>
+import Time from '@/components/CurrentTime';
 export default {
+  components: {
+    Time,
+  },
   props: {
     source: String,
   },

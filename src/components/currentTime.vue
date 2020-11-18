@@ -1,26 +1,29 @@
 <template>
-  <div>{{ year }}</div>
+  <div style="position: absolute;right: 20px;">
+    {{ hour }}:{{ min }}:{{ sec }}
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'currentTime',
   data: () => ({
-    date: '',
+    hour: null,
+    min: null,
+    sec: null,
   }),
-  computed: {
-    year() {
-      return getDate => getDate;
-    },
-  },
   created() {
-    this.getYear();
+    this.currentTime();
   },
   methods: {
-    getYear() {
-      const YAER = new Date();
-      console.log(YAER);
-      this.date = YAER;
+    currentTime() {
+      setInterval(() => {
+        this.hour = new Date().getHours();
+        this.min = new Date().getMinutes();
+        this.sec =
+          new Date().getSeconds() < 10
+            ? '0' + new Date().getSeconds()
+            : new Date().getSeconds();
+      }, 100);
     },
   },
 };
