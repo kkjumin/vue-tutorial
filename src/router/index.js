@@ -16,44 +16,44 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import('../views/sub01.vue'),
+    component: () => import('../views/SlickSort.vue'),
     props: true,
     meta: { name: 'SlickSort' },
   },
   {
     path: '/StyleBinding',
     name: 'StyleBinding',
-    component: () => import('../views/sub02.vue'),
+    component: () => import('../views/StyleBinding.vue'),
     props: true,
     meta: { name: 'StyleBinding' },
   },
   {
     path: '/DialogPopup',
     name: 'DialogPopup',
-    component: () => import('../views/sub03.vue'),
+    component: () => import('../views/DialogPopup.vue'),
     props: true,
     meta: { name: 'DialogPopup' },
   },
   {
     path: '/Chart',
     name: 'Chart',
-    component: () => import('../views/sub04.vue'),
+    component: () => import('../views/Chart.vue'),
     props: true,
     meta: { name: 'Chart' },
   },
   {
     path: '/Video',
     name: 'Video',
-    component: () => import('../views/sub05.vue'),
+    component: () => import('../views/Video.vue'),
     props: true,
     meta: { name: 'Video' },
   },
   {
-    path: '/Photo',
-    name: 'Photo',
-    component: () => import('../views/sub06.vue'),
+    path: '/Board',
+    name: 'Board',
+    component: () => import('../views/Board.vue'),
     props: true,
-    meta: { name: 'Photo' },
+    meta: { name: 'Board' },
   },
 ];
 

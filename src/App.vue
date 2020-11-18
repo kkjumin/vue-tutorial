@@ -45,7 +45,6 @@ export default {
 
   data: () => ({
     drawer: null,
-    selectedMenu: '',
     sideMenu: [
       { name: 'Home', icon: 'mdi-home' },
       { name: 'SlickSort', icon: 'mdi-sort' },
@@ -53,7 +52,7 @@ export default {
       { name: 'DialogPopup', icon: 'mdi-window-restore' },
       { name: 'Chart', icon: 'mdi-chart-bar' },
       { name: 'Video', icon: 'mdi-youtube' },
-      { name: 'Photo', icon: 'mdi-image-multiple' },
+      { name: 'Board', icon: 'mdi-image-edit' },
     ],
   }),
 
@@ -76,7 +75,6 @@ export default {
 
 <style>
 @import url('../src/assets/css/reset.css');
-
 @import url('../src/assets/css/basic.css');
 
 .tabOn {

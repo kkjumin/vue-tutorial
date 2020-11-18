@@ -2,8 +2,8 @@
   <div class="sub05">
     <h1>{{ this.$route.name }}</h1>
 
-    <div>
-      <ul id="videoContents" ref="target" style="padding:0;">
+    <div id="videoContents">
+      <ul ref="target" style="padding:0;">
         <li
           v-for="(item, i) in videos.items"
           :key="i"
