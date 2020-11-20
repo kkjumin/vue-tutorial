@@ -25,7 +25,7 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
 
       <v-toolbar-title>Application </v-toolbar-title>
-      <CurrentTime />
+      <current-time />
     </v-app-bar>
 
     <v-content>
@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import CurrentTime from '@/components/CurrentTime.vue';
+import CurrentTime from '@/components/currentTime';
 export default {
   components: {
     CurrentTime,
