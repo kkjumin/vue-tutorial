@@ -7,10 +7,12 @@
         :index="index"
         :key="index"
         :item="item"
+        @change="test()"
       >
         <div>
           <img src="../assets/img/Hamburger_icon.png" />
-          <span>{{ item }}</span>
+          <v-icon style="float:left; margin-left:40px">{{ item.icon }}</v-icon>
+          <span>{{ item.name }}</span>
         </div>
       </SlickItem>
     </SlickList>
@@ -28,16 +30,31 @@ export default {
   data() {
     return {
       items: [
-        'subItem 1',
-        'subItem 2',
-        'subItem 3',
-        'subItem 4',
-        'subItem 5',
-        'subItem 6',
-        'subItem 7',
-        'subItem 8',
+        { name: 'Item 1', icon: 'mdi-school' },
+        { name: 'Item 2', icon: 'mdi-adobe-acrobat' },
+        { name: 'Item 3', icon: 'mdi-account-circle' },
+        { name: 'Item 4', icon: 'mdi-onepassword' },
+        { name: 'Item 5', icon: 'mdi-rotate-orbit' },
+        { name: 'Item 6', icon: 'mdi-plus-thick' },
+        { name: 'Item 7', icon: 'mdi-trophy-variant-outline' },
+        { name: 'Item 8', icon: 'mdi-airplane' },
       ],
     };
+  },
+  created() {
+    this.initItems();
+  },
+  methods: {
+    initItems() {
+      if (localStorage.slickItems) {
+        this.items = JSON.parse(localStorage.slickItems);
+      }
+    },
+  },
+  watch: {
+    items() {
+      localStorage.slickItems = JSON.stringify(this.items);
+    },
   },
 };
 </script>

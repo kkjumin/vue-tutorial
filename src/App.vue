@@ -25,7 +25,7 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
 
       <v-toolbar-title>Application </v-toolbar-title>
-      <Time />
+      <current-time />
     </v-app-bar>
 
     <v-content>
@@ -39,10 +39,10 @@
 </template>
 
 <script>
-import Time from '@/components/CurrentTime';
+import currentTime from '@/components/CurrentTime';
 export default {
   components: {
-    Time,
+    currentTime,
   },
   props: {
     source: String,
