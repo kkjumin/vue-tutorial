@@ -55,6 +55,13 @@ const routes = [
     props: true,
     meta: { name: 'Board' },
   },
+  {
+    path: '/Pagination',
+    name: 'Pagination',
+    component: () => import('../views/Pagination.vue'),
+    props: true,
+    meta: { name: 'Pagination' },
+  },
 ];
 
 const router = new VueRouter({

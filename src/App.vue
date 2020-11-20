@@ -58,6 +58,7 @@ export default {
       { name: 'Chart', icon: 'mdi-chart-bar' },
       { name: 'Video', icon: 'mdi-youtube' },
       { name: 'Board', icon: 'mdi-image-edit' },
+      { name: 'Pagination', icon: 'mdi-arrow-left-right' },
     ],
   }),
 

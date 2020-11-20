@@ -5,3 +5,8 @@
   margin-bottom: 20px;
   background: #eee;
 }
+
+.content-view {
+  width: 100%;
+  padding: 20px 20px 20px 20px;
+}
