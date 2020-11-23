@@ -2,7 +2,7 @@
   <div class="sub05">
     <h1>{{ this.$route.name }}</h1>
 
-    <div id="videoContents">
+    <div v-if="videos" id="videoContents">
       <ul ref="target" style="padding:0;">
         <li
           v-for="(item, i) in videos.items"
@@ -24,6 +24,7 @@
         </li>
       </ul>
     </div>
+    <div v-if="!videos">Google Api 할당량 초과</div>
 
     <v-row justify="center">
       <v-dialog v-model="popup" max-width="1024">
@@ -40,7 +41,7 @@
       </v-dialog>
     </v-row>
 
-    <div class="pagination">
+    <div v-if="videos" class="pagination">
       <ul>
         <li v-if="videos.prevPageToken" @click="pagePrev()">Prev</li>
         <li v-if="videos.nextPageToken" @click="pageNext()">Next</li>
