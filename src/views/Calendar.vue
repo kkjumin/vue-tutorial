@@ -99,6 +99,7 @@
 
                   <v-text-field label="제목" v-model="title"></v-text-field>
                   <v-textarea label="내용" v-model="detail"></v-textarea>
+                  라벨 색상
                   <ul>
                     <v-btn
                       v-for="color in colors"
@@ -201,8 +202,6 @@ export default {
   },
   methods: {
     modifyEvent() {
-      console.log('수정 이벤트');
-      console.log(this.selectedEvent);
       this.deleteEvent();
       this.writeEvent();
 
@@ -233,7 +232,6 @@ export default {
     },
     // 컨펌 apply일때 호출
     deleteEvent() {
-      console.log('삭제 이벤트');
       let target = this.events.findIndex(
         e => e.index === this.selectedEvent.index,
       );
@@ -245,7 +243,18 @@ export default {
       if (localStorage.events) {
         this.events = JSON.parse(localStorage.events);
       } else {
-        this.events = [];
+        // 로컬스토리지에 이벤트데이터 없을경우 임시 테스트 이벤트 삽입
+        this.events = [
+          {
+            name: '테스트 일정',
+            start: `${this.year}-${this.month}-${this.date}`,
+            end: `${this.year}-${this.month}-${this.date}`,
+            color: 'cyan',
+            timed: true,
+            details: '하이',
+            index: '99999',
+          },
+        ];
       }
     },
     update() {
@@ -264,7 +273,6 @@ export default {
     },
     writeEvent() {
       let event = this.events;
-
       event.push({
         name: this.title,
         start: this.startDate,
@@ -320,9 +328,13 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .on {
   width: 45px !important;
   height: 45px !important;
+}
+.v-calendar .v-event {
+  margin-left: 2px !important;
+  width: 97% !important;
 }
 </style>
