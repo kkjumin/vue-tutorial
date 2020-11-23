@@ -87,4 +87,8 @@ export default {
 .tabOn {
   background: #ddd;
 }
+
+.tabOn .mdi:before {
+  color: rgb(253, 87, 87);
+}
 </style>
