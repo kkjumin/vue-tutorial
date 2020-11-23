@@ -28,9 +28,9 @@
       <current-time />
     </v-app-bar>
 
-    <v-content>
+    <v-main>
       <router-view></router-view>
-    </v-content>
+    </v-main>
 
     <v-footer app>
       <span>&copy; 2020 Jumin</span>
@@ -59,6 +59,7 @@ export default {
       { name: 'Video', icon: 'mdi-youtube' },
       { name: 'Board', icon: 'mdi-image-edit' },
       { name: 'Pagination', icon: 'mdi-arrow-left-right' },
+      { name: 'Calendar', icon: 'mdi-calendar' },
     ],
   }),
 
