@@ -333,8 +333,4 @@ export default {
   width: 45px !important;
   height: 45px !important;
 }
-.v-calendar .v-event {
-  margin-left: 2px !important;
-  width: 97% !important;
-}
 </style>
