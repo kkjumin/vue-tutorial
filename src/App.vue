@@ -35,14 +35,22 @@
     <v-footer app>
       <span>&copy; 2020 Jumin</span>
     </v-footer>
+
+    <black-back />
+    <floating-btn />
   </v-app>
 </template>
 
 <script>
 import CurrentTime from '@/components/currentTime';
+import BlackBack from './components/blackBack.vue';
+import FloatingBtn from './components/FloatingBtn.vue';
+
 export default {
   components: {
     CurrentTime,
+    BlackBack,
+    FloatingBtn,
   },
   props: {
     source: String,
@@ -60,6 +68,7 @@ export default {
       { name: 'Board', icon: 'mdi-image-edit' },
       { name: 'Pagination', icon: 'mdi-arrow-left-right' },
       { name: 'Calendar', icon: 'mdi-calendar' },
+      { name: 'test', icon: 'mdi-account-box-multiple-outline' },
     ],
   }),
 
