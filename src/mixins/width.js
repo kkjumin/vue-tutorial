@@ -1,15 +1,23 @@
-export const contentsWidth = {
+export const width = {
+  data: () => ({
+    width: window.innerWidth,
+  }),
+  computed: {
+    isMobile() {
+      return this.width <= 500 ? true : false;
+    },
+  },
   mounted() {
-    window.addEventListener('resize', this.handleResize2);
+    window.addEventListener('resize', this.handleResize);
   },
 
   beforeDestroy() {
-    window.removeEventListener('resize', this.handleResize2);
+    window.removeEventListener('resize', this.handleResize);
   },
 
   methods: {
-    handleResize2() {
-      this.areaWidth = document.getElementById('videoContents').offsetWidth;
+    handleResize() {
+      this.width = window.innerWidth;
     },
   },
 };

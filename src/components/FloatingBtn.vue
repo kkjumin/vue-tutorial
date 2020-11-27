@@ -1,11 +1,13 @@
 <template>
   <div
     class="floating-btn"
-    :style="scroll > 0 ? 'bottom:50px;' : 'bottom:-100px;'"
+    :style="
+      scroll > 0 ? 'bottom:50px;' : 'bottom:-100px;transform:rotate(-180deg);'
+    "
   >
     <v-btn class="mx-2" fab dark large color="primary" @click="top()">
       <v-icon dark>
-        mdi-menu-up
+        mdi-chevron-up
       </v-icon>
     </v-btn>
   </div>
@@ -43,11 +45,11 @@ export default {
   bottom: 50px;
   right: 20px;
   z-index: 50;
-  transition: 1s;
+  transition: 0.4s;
 }
 
 .floating-btn button span i::before {
-  font-size: 60px;
+  font-size: 40px;
   padding-bottom: 5px;
 }
 </style>

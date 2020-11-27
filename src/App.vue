@@ -24,7 +24,7 @@
     <v-app-bar app clipped-left>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
 
-      <v-toolbar-title>Application </v-toolbar-title>
+      <v-toolbar-title>Jumin's Note</v-toolbar-title>
       <current-time />
     </v-app-bar>
 
@@ -38,6 +38,7 @@
 
     <black-back />
     <floating-btn />
+    <alert />
   </v-app>
 </template>
 
@@ -45,12 +46,14 @@
 import CurrentTime from '@/components/currentTime';
 import BlackBack from './components/blackBack.vue';
 import FloatingBtn from './components/FloatingBtn.vue';
+import Alert from './components/Alert.vue';
 
 export default {
   components: {
     CurrentTime,
     BlackBack,
     FloatingBtn,
+    Alert,
   },
   props: {
     source: String,
@@ -64,15 +67,15 @@ export default {
       { name: 'StyleBinding', icon: 'mdi-palette' },
       { name: 'DialogPopup', icon: 'mdi-window-restore' },
       { name: 'Chart', icon: 'mdi-chart-bar' },
-      { name: 'Video', icon: 'mdi-youtube' },
+
       { name: 'Board', icon: 'mdi-image-edit' },
-      { name: 'Pagination', icon: 'mdi-arrow-left-right' },
       { name: 'Calendar', icon: 'mdi-calendar' },
+      { name: 'Pagination', icon: 'mdi-arrow-left-right' },
+
       { name: 'test', icon: 'mdi-account-box-multiple-outline' },
+      { name: 'Video', icon: 'mdi-youtube' },
     ],
   }),
-
-  created() {},
 
   computed: {
     tabOn() {

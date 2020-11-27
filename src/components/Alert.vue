@@ -1,5 +1,5 @@
 <template>
-  <div v-if="show" class="main-alert">
+  <div v-if="show && !isChrome" class="main-alert">
     <v-alert prominent type="error">
       <v-row align="center">
         <v-col class="grow">

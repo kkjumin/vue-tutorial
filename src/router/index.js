@@ -69,6 +69,13 @@ const routes = [
     props: true,
     meta: { name: 'Calendar' },
   },
+  {
+    path: '/test',
+    name: 'test',
+    component: () => import('../views/test.vue'),
+    props: true,
+    meta: { name: 'test' },
+  },
 ];
 
 const router = new VueRouter({

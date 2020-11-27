@@ -24,7 +24,7 @@
         </li>
       </ul>
     </div>
-    <div v-if="!videos">Google Api 할당량 초과</div>
+    <div v-if="_.isEmpty(videos)">Google Api 할당량 초과</div>
 
     <v-row justify="center">
       <v-dialog v-model="popup" max-width="1024">
@@ -41,7 +41,7 @@
       </v-dialog>
     </v-row>
 
-    <div v-if="videos" class="pagination">
+    <div v-if="!_.isEmpty(videos)" class="pagination">
       <ul>
         <li v-if="videos.prevPageToken" @click="pagePrev()">Prev</li>
         <li v-if="videos.nextPageToken" @click="pageNext()">Next</li>
@@ -52,8 +52,6 @@
 
 <script>
 import * as lovelyz from '../store/modules/lovelyz';
-
-import { YOUTUBE_PLAYLIST, VIDEO } from '../store/modules/lovelyz';
 
 export default {
   components: {},
@@ -67,7 +65,7 @@ export default {
 
   computed: {
     ...lovelyz.mapState({
-      videos: VIDEO,
+      videos: lovelyz.VIDEO,
     }),
     contentWidth() {
       let conwidth;
@@ -101,7 +99,7 @@ export default {
 
   methods: {
     ...lovelyz.mapActions({
-      youtubePlayList: YOUTUBE_PLAYLIST,
+      youtubePlayList: lovelyz.YOUTUBE_PLAYLIST,
     }),
 
     playVideo(videoId) {
