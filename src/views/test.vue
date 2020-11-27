@@ -48,7 +48,7 @@
               :src="img"
               lazy-src="https://picsum.photos/id/11/100/60"
               aspect-ratio="0.7"
-              class="grey lighten-2"
+              class="grey lighten-2 mem-img"
               style="cursor:pointer;"
               @click="imgClick(img)"
             >
@@ -147,7 +147,7 @@ export default {
   margin-top: 20px;
 }
 
-.v-image {
+.mem-img {
   box-shadow: 3px 3px 3px #ddd;
   transition: 0.3s;
   border-radius: 10px;

@@ -17,8 +17,8 @@
       <div class="text-center">
         <v-pagination
           v-model="page"
-          :length="5"
-          :total-visible="5"
+          :length="15"
+          :total-visible="7"
           circle
         ></v-pagination>
       </div>
@@ -39,6 +39,16 @@ export default {
       { key: 3, name: 'test3', img: require('../assets/img/page03.jpg') },
       { key: 4, name: 'test4', img: require('../assets/img/page04.jpg') },
       { key: 5, name: 'test5', img: require('../assets/img/page05.jpg') },
+      { key: 6, name: 'test5', img: require('../assets/img/page06.jpg') },
+      { key: 7, name: 'test5', img: require('../assets/img/page07.gif') },
+      { key: 8, name: 'test5', img: require('../assets/img/page08.gif') },
+      { key: 9, name: 'test5', img: require('../assets/img/page09.jpg') },
+      { key: 10, name: 'test5', img: require('../assets/img/page10.gif') },
+      { key: 11, name: 'test5', img: require('../assets/img/page11.gif') },
+      { key: 12, name: 'test5', img: require('../assets/img/page12.jpg') },
+      { key: 13, name: 'test5', img: require('../assets/img/page13.gif') },
+      { key: 14, name: 'test5', img: require('../assets/img/page14.gif') },
+      { key: 15, name: 'test5', img: require('../assets/img/page15.jpg') },
     ],
   }),
 
