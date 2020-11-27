@@ -5,6 +5,7 @@
     <section class="content-view">
       <div class="album-img">img</div>
       <div class="album-detail">deteil</div>
+
       <div class="album-slide" :style="`width:${slideWidth}px`">
         <div
           :style="
@@ -140,7 +141,6 @@ export default {
         this.startPoint - this.selectedAlbum * this.contentWidth + 'px';
     },
     selectAlbum(i) {
-      console.log(i);
       this.selectedAlbum = i;
       const target = this.$refs.albumList.style;
       target.marginLeft =
@@ -159,7 +159,6 @@ export default {
   background: #eee;
   padding: 10px;
 }
-
 .album-slide {
   position: relative;
   display: block;
@@ -169,26 +168,21 @@ export default {
   border-radius: 20px;
   padding: 10px 40px 10px 40px;
 }
-
 .album-list {
   padding: 0;
   transition: 0.2s;
 }
-
 .album {
   display: inline-block;
   cursor: pointer;
 }
-
 .slide-img {
   width: 100%;
   float: left;
 }
-
 .album-arrow {
   position: absolute !important;
 }
-
 .left-arrow {
   left: 3px;
   top: 50%;
