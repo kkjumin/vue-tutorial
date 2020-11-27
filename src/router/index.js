@@ -70,11 +70,18 @@ const routes = [
     meta: { name: 'Calendar' },
   },
   {
-    path: '/test',
-    name: 'test',
-    component: () => import('../views/test.vue'),
+    path: '/lovelyz',
+    name: 'Lovelyz',
+    component: () => import('../views/Lovelyz.vue'),
     props: true,
-    meta: { name: 'test' },
+    meta: { name: 'Lovelyz' },
+  },
+  {
+    path: '/music',
+    name: 'Music',
+    component: () => import('../views/Music.vue'),
+    props: true,
+    meta: { name: 'Music' },
   },
 ];
 

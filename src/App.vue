@@ -67,12 +67,11 @@ export default {
       { name: 'StyleBinding', icon: 'mdi-palette' },
       { name: 'DialogPopup', icon: 'mdi-window-restore' },
       { name: 'Chart', icon: 'mdi-chart-bar' },
-
       { name: 'Board', icon: 'mdi-image-edit' },
       { name: 'Calendar', icon: 'mdi-calendar' },
       { name: 'Pagination', icon: 'mdi-arrow-left-right' },
-
-      { name: 'test', icon: 'mdi-account-box-multiple-outline' },
+      { name: 'Lovelyz', icon: 'mdi-flower-poppy' },
+      { name: 'Music', icon: 'mdi-music' },
       { name: 'Video', icon: 'mdi-youtube' },
     ],
   }),
