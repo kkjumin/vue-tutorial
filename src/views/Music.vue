@@ -9,8 +9,8 @@
       <div class="album-slide" :style="`width:${slideWidth}px`">
         <div
           :style="
-            `width:${contentWidth *
-              albumCount};height:${albumSize}px;overflow:hidden`
+            `width:${contentWidth * albumCount};height:${albumSize +
+              10}px;overflow:hidden;padding-top:5px;`
           "
         >
           <v-icon x-large class="album-arrow left-arrow" @click="move('left')">
@@ -175,6 +175,7 @@ export default {
 .album {
   display: inline-block;
   cursor: pointer;
+  box-shadow: 3px 3px 3px #aaa;
 }
 .slide-img {
   width: 100%;
