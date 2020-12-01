@@ -20,8 +20,11 @@
         max-height="460px"
         max-width="460px"
         :style="`float:left;margin-left:${isMobile ? 0 : 4}%`"
-        >{{ selectedAlbumDetail.name }}</v-card
       >
+        <p style="text-align:center;font-size:20px;">
+          {{ selectedAlbumDetail.name }}
+        </p>
+      </v-card>
       <!-- <div
         class="album-img"
         :style="

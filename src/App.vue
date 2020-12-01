@@ -15,7 +15,11 @@
           </v-list-item-action>
 
           <v-list-item-content>
-            <v-list-item-title>{{ menu.name }}</v-list-item-title>
+            <v-list-item-title
+              ><span style="font-size:20px">{{
+                menu.name
+              }}</span></v-list-item-title
+            >
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -24,7 +28,9 @@
     <v-app-bar app clipped-left>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
 
-      <v-toolbar-title>Jumin's Note</v-toolbar-title>
+      <v-toolbar-title
+        ><span style="font-size:30px">Jumin's Note</span></v-toolbar-title
+      >
       <current-time />
     </v-app-bar>
 

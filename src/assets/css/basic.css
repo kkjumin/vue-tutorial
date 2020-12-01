@@ -1,3 +1,19 @@
+@font-face {
+  font-family: 'NanumBarunpenR';
+  font-weight: normal;
+  font-style: normal;
+  src: url('../fonts/NanumBarunpenR.otf'), url('../fonts/NanumBarunpenR.ttf');
+}
+
+@font-face {
+  font-family: 'NanumBarunpenB';
+  font-weight: bold;
+  src: url('../fonts/NanumBarunpenB.otf'), url('../fonts/NanumBarunpenB.ttf');
+}
+* {
+  font-family: 'NanumBarunpenR';
+}
+
 .v-main__wrap h1 {
   display: inline-block;
   width: 100%;
