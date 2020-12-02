@@ -16,7 +16,7 @@
 
           <v-list-item-content>
             <v-list-item-title
-              ><span style="font-size:20px;">{{
+              ><span style="font-size:21px;line-height:1.5">{{
                 menu.name
               }}</span></v-list-item-title
             >

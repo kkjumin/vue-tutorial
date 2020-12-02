@@ -1,17 +1,9 @@
 @font-face {
   font-family: 'NanumBarunpenR';
-  font-weight: normal;
-  font-style: normal;
-  src: url('../fonts/NanumBarunpenR.otf') format('opentype'),
-    url('../fonts/NanumBarunpenR.ttf') format('truetype');
+  src: url('../fonts/nanumbarunpenr-webfont.woff2') format('woff2'),
+    url('../fonts/nanumbarunpenr-webfont.woff') format('woff');
 }
 
-@font-face {
-  font-family: 'NanumBarunpenB';
-  font-weight: bold;
-  src: url('../fonts/NanumBarunpenB.otf') format('opentype'),
-    url('../fonts/NanumBarunpenB.ttf') format('truetype');
-}
 * {
   font-family: 'NanumBarunpenR';
   letter-spacing: 0.5px;

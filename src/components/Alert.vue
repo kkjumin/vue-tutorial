@@ -3,7 +3,7 @@
     <v-alert prominent type="error">
       <v-row align="center">
         <v-col class="grow">
-          본 사이트는
+          이 사이트는
           <img
             class="chrome-icon"
             src="../assets/img/chrome.png"
