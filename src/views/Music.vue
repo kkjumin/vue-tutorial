@@ -16,11 +16,10 @@
         <div class="album-back">
           <v-progress-circular
             :rotate="270"
-            :size="440"
-            :width="15"
+            :width="1"
             :value="value"
             :max-value="50"
-            color="teal"
+            color="red"
           >
             <v-icon v-if="!isPlay" color="#fff" class="music" @click="play()"
               >mdi-play</v-icon
@@ -31,6 +30,7 @@
           </v-progress-circular>
         </div>
       </v-card>
+
       <v-card
         class="album-detail"
         :width="`${isMobile ? 100 : 48}%`"
@@ -102,7 +102,6 @@
       <!-- 슬라이드 -->
       <audio
         ref="audio"
-        controls
         :src="`${require(`../assets/mp3/${selectedAlbumDetail.titleSong}`)}`"
       ></audio>
     </section>
@@ -208,6 +207,7 @@ export default {
       this.value = 0;
       this.isPlay = false;
       this.$refs.audio.pause();
+      this.$refs.audio.currentTime = 0;
     },
   },
   watch: {
@@ -224,7 +224,6 @@ export default {
 .album-detail {
   float: left;
   background: #eee;
-  padding: 10px;
   margin-bottom: 30px;
   overflow: hidden;
   border-radius: 50px 0 50px 0 !important;
@@ -289,12 +288,12 @@ export default {
 }
 
 .album-back {
-  position: relative;
+  position: absolute;
   width: 100%;
   height: 100%;
+  padding: 20px;
   display: none;
   background: rgba(0, 0, 0, 0.5);
-  border-radius: 1000px !important;
 }
 
 .album-img:hover .album-back {
@@ -306,5 +305,9 @@ export default {
 }
 .album-back .v-progress-circular__overlay {
   transition: 1s !important;
+}
+.v-progress-circular {
+  width: 100% !important;
+  height: 100% !important;
 }
 </style>
