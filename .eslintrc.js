@@ -11,7 +11,7 @@ module.exports = {
     'no-undef': 'off',
     'no-shadow': 'off',
     'no-param-reassign': ['error', { props: false }],
-    'linebreak-style': 0,
+    'linebreak-style': ['off'],
     'object-curly-newline': 'off',
     'global-require': 'off',
     'func-names': 'off',
