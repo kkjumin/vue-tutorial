@@ -1,6 +1,6 @@
 <template>
   <div class="Dashboard">
-    <h1>SlideMenu</h1>
+    <h1>{{ this.$route.name }}</h1>
     <SlideMenu />
   </div>
 </template>

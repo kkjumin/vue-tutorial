@@ -6,46 +6,71 @@
       <v-card
         class="album-img"
         :width="`${isMobile ? 100 : 48}%`"
-        :height="`${isMobile ? 75 : 45}vw`"
+        :height="`${isMobile ? 90 : 45}vw`"
         max-height="460px"
         max-width="460px"
         :style="
           `background: url('${require(`../assets/img/album/${selectedAlbumDetail.img}`)}') no-repeat center center;background-size:cover;`
         "
-      ></v-card>
+      >
+        <div class="album-back">
+          <v-icon v-if="!isPlay" color="#fff" class="music" @click="play()"
+            >mdi-play</v-icon
+          >
+          <v-icon v-else class="music" color="#fff" @click="pause()"
+            >mdi-pause</v-icon
+          >
+          <!-- <v-icon class="music" color="#fff" @click="stop()" size="19px"
+              >mdi-square</v-icon
+            > -->
+        </div>
+      </v-card>
       <v-card
         class="album-detail"
         :width="`${isMobile ? 100 : 48}%`"
-        :height="`${isMobile ? 75 : 45}vw`"
+        :height="`${isMobile ? 90 : 45}vw`"
         max-height="460px"
         max-width="460px"
         :style="`float:left;margin-left:${isMobile ? 0 : 4}%`"
       >
-        <p style="text-align:center;font-size:20px;">
+        <p style="text-align:center;font-size:20px;font-weight:bold;">
           {{ selectedAlbumDetail.name }}
         </p>
+        <div style="font-weight:bold;margin:0 0 10px 20px;">Track List</div>
+        <div
+          v-for="(track, i) in selectedAlbumDetail.tracklist"
+          :key="i"
+          style="margin-bottom:4px;margin-left:20px;"
+        >
+          {{ track.song }}
+        </div>
       </v-card>
-      <!-- <div
+      <!-- <v-card
         class="album-img"
-        :style="
-          `background: url('${require(`../assets/img/album/${selectedAlbumDetail.img}`)}') no-repeat center center;
-          width:${isMobile ? width - 57 : width / 2 - 30}px;height:${
-            isMobile ? 80 : 50
-          }vw;background-size:cover;`
-        "
-      ></div> -->
-      <!-- <div
-        class="album-detail"
-        :style="
-          `width:${isMobile ? width - 57 : width / 2 - 30}px;height:${
-            isMobile ? 80 : 50
-          }vw;`
-        "
+        :width="`${isMobile ? 100 : 48}%`"
+        :height="`65px`"
+        max-height="460px"
+        max-width="460px"
       >
-        <p style="font-size:20px;text-align:center;">
-          {{ selectedAlbumDetail.name }}
-        </p>
-      </div> -->
+        <div>
+          <v-icon v-if="isPlay" class="music" @click="play()">mdi-play</v-icon>
+          <v-icon v-else class="music" @click="pause()">mdi-pause</v-icon>
+          <v-icon class="music" @click="stop()" size="19px">mdi-square</v-icon>
+          <v-progress-circular
+            indeterminate
+            color="primary"
+            :width="2"
+            :size="15"
+            style="float:right;margin-top:5px;"
+          ></v-progress-circular>
+        </div>
+        <v-progress-linear
+          v-model="music"
+          :buffer-value="buffer"
+          color="blue lighten-2"
+          style="margin-top:10px;"
+        ></v-progress-linear>
+      </v-card> -->
 
       <div class="album-slide" :style="`width:${slideWidth}px`">
         <div
@@ -108,6 +133,10 @@ export default {
     selectedAlbumDetail: {},
     //앨범 사이 left,right 마진값
     albumMargin: 10,
+
+    music: 100,
+    buffer: 100,
+    isPlay: false,
   }),
   computed: {
     test() {
@@ -155,8 +184,18 @@ export default {
         this.startPoint - this.selectedAlbum * this.contentWidth + 'px';
     },
     initAlbum() {
-      console.log(this.album[0]);
       this.selectedAlbumDetail = this.album[0];
+    },
+    play() {
+      console.log('play');
+      this.isPlay = !this.isPlay;
+    },
+    pause() {
+      console.log('pause');
+      this.isPlay = !this.isPlay;
+    },
+    stop() {
+      console.log('stop');
     },
   },
 };
@@ -169,6 +208,10 @@ export default {
   background: #eee;
   padding: 10px;
   margin-bottom: 30px;
+  overflow: hidden;
+}
+.album-img {
+  cursor: pointer;
 }
 .album-slide {
   clear: both;
@@ -216,5 +259,38 @@ export default {
 
 .album-arrow:hover {
   color: blue;
+}
+
+.music {
+  cursor: pointer;
+  margin-right: 10px;
+}
+.music:hover {
+  color: blue;
+}
+
+.album-back {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 1000px !important;
+}
+
+.album-img:hover .album-back {
+  display: block;
+}
+
+.album-back button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+}
+
+.album-back button::before {
+  font-size: 100px;
 }
 </style>

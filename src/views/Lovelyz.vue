@@ -101,7 +101,7 @@ export default {
   height: 100%;
   background: #eee;
   cursor: pointer;
-  transition: 0.1s;
+  /* transition: 0.1s; */
   margin-top: 10px;
   box-shadow: 3px 3px 3px #ddd;
   background-size: 100%;

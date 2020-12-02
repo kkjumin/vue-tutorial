@@ -16,7 +16,7 @@
 
           <v-list-item-content>
             <v-list-item-title
-              ><span style="font-size:20px">{{
+              ><span style="font-size:20px;">{{
                 menu.name
               }}</span></v-list-item-title
             >
@@ -29,7 +29,9 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
 
       <v-toolbar-title
-        ><span style="font-size:30px">Jumin's Note</span></v-toolbar-title
+        ><span style="font-size:30px;font-weight:bold;"
+          >Jumin's Note</span
+        ></v-toolbar-title
       >
       <current-time />
     </v-app-bar>

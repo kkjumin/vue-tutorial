@@ -12,6 +12,7 @@
 }
 * {
   font-family: 'NanumBarunpenR';
+  letter-spacing: 0.5px;
 }
 
 .v-main__wrap h1 {
