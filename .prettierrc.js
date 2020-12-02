@@ -3,7 +3,7 @@ module.exports = {
   printWidth: 80,
   singleQuote: true,
   arrowParens: 'avoid',
-  endOfLine: 'crlf',
+  endOfLine: 'lf',
   quoteProps: 'as-needed',
   tabWidth: 2,
   useTabs: false,
