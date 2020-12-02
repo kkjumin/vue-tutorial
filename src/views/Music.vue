@@ -209,6 +209,7 @@ export default {
   padding: 10px;
   margin-bottom: 30px;
   overflow: hidden;
+  border-radius: 50px 0 50px 0 !important;
 }
 .album-img {
   cursor: pointer;
