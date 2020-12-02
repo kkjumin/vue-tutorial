@@ -14,8 +14,9 @@
           <div
             class="thumbNail"
             :style="
-              `background:url('${item.snippet.thumbnails.high.url}') no-repeat center center;background-size:cover;`
+              `background:url('${item.snippet.thumbnails.high.url}') no-repeat center center;`
             "
+            style=""
           ></div>
 
           <div class="blackBack"></div>
@@ -176,7 +177,7 @@ export default {
 
   height: 100%;
 
-  background-size: cover;
+  background-size: cover !important;
 }
 
 .blackBack {

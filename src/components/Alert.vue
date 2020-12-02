@@ -26,8 +26,12 @@ export default {
   computed: {
     isChrome() {
       const browser = navigator.userAgent.toLowerCase();
-
-      return browser.includes('chrome') ? true : false;
+      let isChrome = false;
+      if (browser.includes('mobile') || browser.includes('chrome')) {
+        isChrome = true;
+      }
+      console.log(isChrome);
+      return isChrome;
     },
   },
   methods: {

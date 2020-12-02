@@ -2,13 +2,15 @@
   font-family: 'NanumBarunpenR';
   font-weight: normal;
   font-style: normal;
-  src: url('../fonts/NanumBarunpenR.otf'), url('../fonts/NanumBarunpenR.ttf');
+  src: url('../fonts/NanumBarunpenR.otf') format('opentype'),
+    url('../fonts/NanumBarunpenR.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'NanumBarunpenB';
   font-weight: bold;
-  src: url('../fonts/NanumBarunpenB.otf'), url('../fonts/NanumBarunpenB.ttf');
+  src: url('../fonts/NanumBarunpenB.otf') format('opentype'),
+    url('../fonts/NanumBarunpenB.ttf') format('truetype');
 }
 * {
   font-family: 'NanumBarunpenR';
