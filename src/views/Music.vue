@@ -14,15 +14,21 @@
         "
       >
         <div class="album-back">
-          <v-icon v-if="!isPlay" color="#fff" class="music" @click="play()"
-            >mdi-play</v-icon
+          <v-progress-circular
+            :rotate="270"
+            :size="440"
+            :width="15"
+            :value="value"
+            :max-value="50"
+            color="teal"
           >
-          <v-icon v-else class="music" color="#fff" @click="pause()"
-            >mdi-pause</v-icon
-          >
-          <!-- <v-icon class="music" color="#fff" @click="stop()" size="19px"
-              >mdi-square</v-icon
-            > -->
+            <v-icon v-if="!isPlay" color="#fff" class="music" @click="play()"
+              >mdi-play</v-icon
+            >
+            <v-icon v-else class="music" color="#fff" @click="pause()"
+              >mdi-pause</v-icon
+            >
+          </v-progress-circular>
         </div>
       </v-card>
       <v-card
@@ -45,33 +51,8 @@
           {{ track.song }}
         </div>
       </v-card>
-      <!-- <v-card
-        class="album-img"
-        :width="`${isMobile ? 100 : 48}%`"
-        :height="`65px`"
-        max-height="460px"
-        max-width="460px"
-      >
-        <div>
-          <v-icon v-if="isPlay" class="music" @click="play()">mdi-play</v-icon>
-          <v-icon v-else class="music" @click="pause()">mdi-pause</v-icon>
-          <v-icon class="music" @click="stop()" size="19px">mdi-square</v-icon>
-          <v-progress-circular
-            indeterminate
-            color="primary"
-            :width="2"
-            :size="15"
-            style="float:right;margin-top:5px;"
-          ></v-progress-circular>
-        </div>
-        <v-progress-linear
-          v-model="music"
-          :buffer-value="buffer"
-          color="blue lighten-2"
-          style="margin-top:10px;"
-        ></v-progress-linear>
-      </v-card> -->
 
+      <!-- 슬라이드 -->
       <div class="album-slide" :style="`width:${slideWidth}px`">
         <div
           :style="
@@ -118,6 +99,12 @@
           </ul>
         </div>
       </div>
+      <!-- 슬라이드 -->
+      <audio
+        ref="audio"
+        controls
+        :src="`${require(`../assets/mp3/${selectedAlbumDetail.titleSong}`)}`"
+      ></audio>
     </section>
   </div>
 </template>
@@ -127,6 +114,7 @@ import { width, albums } from '@/mixins';
 export default {
   mixins: [width, albums],
   data: () => ({
+    value: 0,
     tab: null,
 
     selectedAlbum: 0,
@@ -163,6 +151,11 @@ export default {
   created() {
     this.initAlbum();
   },
+  mounted() {
+    this.$refs.audio.volume = 0.3;
+    console.log(this.$refs.audio.volume);
+  },
+
   methods: {
     move(dir) {
       const target = this.$refs.albumList.style;
@@ -187,15 +180,40 @@ export default {
       this.selectedAlbumDetail = this.album[0];
     },
     play() {
-      console.log('play');
       this.isPlay = !this.isPlay;
+      this.$refs.audio.play();
+      this.playInterval();
     },
     pause() {
-      console.log('pause');
       this.isPlay = !this.isPlay;
+      this.$refs.audio.pause();
+      clearInterval(this.playCount);
     },
-    stop() {
-      console.log('stop');
+
+    playInterval() {
+      this.playCount = setInterval(() => {
+        let total = this.$refs.audio.duration.toFixed(0);
+        let curr = this.$refs.audio.currentTime.toFixed(0);
+        this.value = ((curr / total) * 100).toFixed(2);
+
+        if (this.value >= 100) {
+          clearInterval(this.playCount);
+          this.value = 0;
+          this.isPlay = false;
+        }
+      }, 100);
+    },
+    initInterval() {
+      clearInterval(this.playCount);
+      this.value = 0;
+      this.isPlay = false;
+      this.$refs.audio.pause();
+    },
+  },
+  watch: {
+    selectedAlbum() {
+      console.log(this.selectedAlbum);
+      this.initInterval();
     },
   },
 };
@@ -283,15 +301,10 @@ export default {
   display: block;
 }
 
-.album-back button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-}
-
 .album-back button::before {
   font-size: 100px;
+}
+.album-back .v-progress-circular__overlay {
+  transition: 1s !important;
 }
 </style>

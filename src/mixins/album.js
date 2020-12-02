@@ -6,6 +6,7 @@ export const albums = {
         img: 'fjqmfflwm_album.jpg',
         name: 'UNFORGETTABLE',
         date: '2020.09.01',
+        titleSong: 'obliviate.mp3',
         tracklist: [
           { song: '1. Unforgettable' },
           { song: '2. Obliviate' },
@@ -20,6 +21,7 @@ export const albums = {
         img: 'lovelyz_6th.jpg',
         name: 'Once upon a time',
         date: '2019.05.20',
+        titleSong: 'obliviate.mp3',
         tracklist: [
           { song: '1. Once upon a time' },
           { song: '2. 그 시절 우리가 사랑했던 우리(Beautiful Days)' },
@@ -34,6 +36,7 @@ export const albums = {
         img: 'thumb_babysoul.jpg',
         name: '조각달',
         date: '2019.04.23',
+        titleSong: 'obliviate.mp3',
         tracklist: [{ song: '1. 조각달' }],
       },
       {
@@ -41,6 +44,7 @@ export const albums = {
         img: 'lovelyz_5th.jpg',
         name: 'LOVELYZ 5th MINI ALBUM [SANCTUARY]',
         date: '2018.11.26',
+        titleSong: 'obliviate.mp3',
         tracklist: [
           { song: '1. Never Ending' },
           { song: '2. 찾아가세요' },
@@ -56,6 +60,7 @@ export const albums = {
         img: 'lovelyz_mom.jpg',
         name: 'LOVELYZ Instrumental Album [MUSE ON MUSIC]',
         date: '2018.09.10',
+        titleSong: 'obliviate.mp3',
         tracklist1: [
           { song: '1. Destiny (나의 지구) ' },
           { song: '2. 비밀여행' },
@@ -101,6 +106,7 @@ export const albums = {
         img: 'lovelyz_4album.jpg',
         name: 'LOVELYZ 4RD MINI ALBUM [治癒]',
         date: '2018.04.23',
+        titleSong: 'thatday.mp3',
         tracklist: [
           { song: '1. 治癒(치유)' },
           { song: '2. 그날의 너' },
@@ -115,6 +121,7 @@ export const albums = {
         img: 'thum_fallin.jpg',
         name: 'LOVELYZ 3RD MINI ALBUM [FALL IN LOVELYZ]',
         date: '2017.11.14',
+        titleSong: 'obliviate.mp3',
         tracklist: [
           { song: '1. Spotlight' },
           { song: '2. 종소리' },
@@ -130,6 +137,7 @@ export const albums = {
         img: 'album_nowus.jpg',
         name: 'Lovelyz 2nd Album Repackage [지금, 우리]',
         date: '2017.05.02',
+        titleSong: 'nowwe.mp3',
         tracklist: [
           { song: '1. R U Ready?' },
           { song: '2. WoW!' },
@@ -151,6 +159,7 @@ export const albums = {
         img: 'album_ruready.jpg',
         name: 'Lovelyz 2nd Album [R U Ready?]',
         date: '2017.02.26',
+        titleSong: 'obliviate.mp3',
         tracklist: [
           { song: '1. R U Ready?' },
           { song: '2. WoW!' },
@@ -170,6 +179,7 @@ export const albums = {
         img: 'album_anewtrilogy.jpg',
         name: 'A New Trilogy',
         date: '2016.04.25',
+        titleSong: 'obliviate.mp3',
         tracklist: [
           { song: '1. Moonrise' },
           { song: '2. Destiny (나의 지구)' },
@@ -185,6 +195,7 @@ export const albums = {
         img: 'album_lovelinus.jpg',
         name: 'Lovelinus',
         date: '2015.12.07',
+        titleSong: 'obliviate.mp3',
         tracklist: [
           { song: '1. 그대에게' },
           { song: '2. Circle' },
@@ -196,6 +207,7 @@ export const albums = {
         img: 'album_lovelyz8.jpg',
         name: 'Lovelyz8',
         date: '2015.10.01',
+        titleSong: 'obliviate.mp3',
         tracklist: [
           { song: '1. Welcome To The Loveylz8' },
           { song: '2. Ah-choo' },
@@ -211,6 +223,7 @@ export const albums = {
         img: 'album_hi.jpg',
         name: 'Hi~',
         date: '2015.03.03',
+        titleSong: 'obliviate.mp3',
         tracklist: [
           { song: '1. Introducing the Candy' },
           { song: '2. Candy Jelly Love' },
@@ -233,6 +246,7 @@ export const albums = {
         img: 'album_girlsinvasion.jpg',
         name: 'Girls` Invasion',
         date: '2014.11.17',
+        titleSong: 'obliviate.mp3',
         tracklist: [
           { song: '1. Introducing the Candy' },
           { song: '2. Candy Jelly Love' },
