@@ -34,12 +34,14 @@
       <v-card
         class="album-detail"
         :width="`${isMobile ? 100 : 48}%`"
-        :height="`${isMobile ? 90 : 45}vw`"
-        max-height="460px"
+        :height="`${isMobile ? 'auto' : '45vw'}`"
+        :max-height="`${isMobile ? '' : '460px'}`"
         max-width="460px"
         :style="`float:left;margin-left:${isMobile ? 0 : 4}%`"
       >
-        <p style="text-align:center;font-size:20px;font-weight:bold;">
+        <p
+          style="text-align:center;font-size:20px;font-weight:bold;margin-bottom:12px;"
+        >
           {{ selectedAlbumDetail.name }}
         </p>
         <div style="font-weight:bold;margin:0 0 10px 20px;">Track List</div>
@@ -231,6 +233,10 @@ export default {
 .album-img {
   cursor: pointer;
 }
+.album-detail {
+  padding: 15px;
+}
+
 .album-slide {
   clear: both;
   position: relative;
