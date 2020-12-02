@@ -11,7 +11,7 @@
       </v-carousel-item>
     </v-carousel>
 
-    <v-carousel
+    <!-- <v-carousel
       cycle
       height="500"
       hide-delimiter-background
@@ -25,7 +25,7 @@
           </v-row>
         </v-sheet>
       </v-carousel-item>
-    </v-carousel>
+    </v-carousel> -->
   </div>
 </template>
 
