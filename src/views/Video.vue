@@ -1,233 +1,119 @@
 <template>
   <div class="sub05">
     <h1>{{ this.$route.name }}</h1>
+    <section class="content-view">
+      <v-container class="grey lighten-5">
+        <v-row no-gutters>
+          <v-col v-for="(item, i) in playList.items" :key="i" cols="12" sm="4">
+            <v-card
+              class="pa-2"
+              style="margin:10px;cursor:pointer;"
+              @click="playVideo(item.snippet.resourceId.videoId)"
+            >
+              <div class="video-box" style="position:relative;">
+                <img
+                  class="thumbnail"
+                  :src="item.snippet.thumbnails.medium.url"
+                  alt=""
+                />
+                <div class="video-back">
+                  <v-icon class="youtube-ico" color="red" style=""
+                    >mdi-youtube</v-icon
+                  >
+                </div>
+              </div>
 
-    <div v-if="videos" id="videoContents">
-      <ul ref="target" style="padding:0;">
-        <li
-          v-for="(item, i) in videos.items"
-          :key="i"
-          :style="`width:${contentWidth}px;height:${contentHeight}px;`"
-          class="card_contents"
-          @click="playVideo(item.snippet.resourceId.videoId)"
-        >
-          <div
-            class="thumbNail"
-            :style="
-              `background:url('${item.snippet.thumbnails.high.url}') no-repeat center center;`
-            "
-            style=""
-          ></div>
-
-          <div class="blackBack"></div>
-
-          <div class="btnPlay"></div>
-        </li>
-      </ul>
-    </div>
-    <div v-if="_.isEmpty(videos)">Google Api 할당량 초과</div>
-
-    <v-row justify="center">
-      <v-dialog v-model="popup" max-width="1024">
-        <iframe
-          id="video"
-          :width="width"
-          :height="width * 0.5625"
-          :src="
-            `https://www.youtube.com/embed/${selectedUrl}?rel=0;amp;autoplay=1;`
-          "
-          frameborder="0"
-          allowfullscreen="true"
-        ></iframe>
-      </v-dialog>
-    </v-row>
-
-    <div v-if="!_.isEmpty(videos)" class="pagination">
-      <ul>
-        <li v-if="videos.prevPageToken" @click="pagePrev()">Prev</li>
-        <li v-if="videos.nextPageToken" @click="pageNext()">Next</li>
-      </ul>
-    </div>
+              <p
+                class="video-title"
+                style="height:50px;overflow:hidden;margin-top:15px;"
+              >
+                {{ item.snippet.title }}
+              </p>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
+      <div class="btn-wrap">
+        <button v-if="playList.prevPageToken" class="btn-prev" @click="prev()">
+          Prev
+        </button>
+        <button v-if="playList.nextPageToken" class="btn-next" @click="next()">
+          Next
+        </button>
+      </div>
+    </section>
   </div>
 </template>
 
 <script>
-import * as lovelyz from '../store/modules/lovelyz';
+import { popup } from '@/mixins';
+import * as lovelyz from '@/store/modules/lovelyz';
 
 export default {
-  components: {},
-
-  data: () => ({
-    popup: false,
-    selectedUrl: '',
-    width: window.innerWidth > 1024 ? 1024 : window.innerWidth,
-    areaWidth: null,
-  }),
-
+  mixins: [popup],
+  data: () => ({}),
   computed: {
-    ...lovelyz.mapState({
-      videos: lovelyz.VIDEO,
+    ...lovelyz.mapGetters({
+      playList: lovelyz.VIDEO,
     }),
-    contentWidth() {
-      let conwidth;
-      if (this.width < 768) {
-        conwidth = this.areaWidth / 2 - 21;
-      } else {
-        conwidth = this.areaWidth / 3 - 21;
-      }
-
-      return parseInt(conwidth.toFixed(0));
-    },
-    contentHeight() {
-      return this.contentWidth * 0.5625;
-    },
   },
-
   created() {
-    this.youtubePlayList();
+    this.getPlayList();
   },
-
-  mounted() {
-    this.areaWidth = document.getElementById('videoContents').offsetWidth;
-    window.addEventListener('resize', this.handleResize);
-    window.addEventListener('resize', this.handleResize2);
-  },
-
-  beforeDestroy() {
-    window.removeEventListener('resize', this.handleResize);
-    window.removeEventListener('resize', this.handleResize2);
-  },
-
   methods: {
     ...lovelyz.mapActions({
-      youtubePlayList: lovelyz.YOUTUBE_PLAYLIST,
+      getPlayList: lovelyz.YOUTUBE_PLAYLIST,
     }),
-
     playVideo(videoId) {
-      this.popup = true;
-      let video = document.getElementById('video');
-      this.selectedUrl = videoId;
-      if (video) {
-        video.src = `https://www.youtube.com/embed/${this.selectedUrl}?rel=0;amp;autoplay=1;`;
-      }
+      console.log(videoId);
+      this.openVideoPopup(videoId);
     },
-
-    handleResize() {
-      this.width = window.innerWidth;
-
-      if (this.width > 1024) {
-        this.width = 1024;
-      }
-
-      this.height = window.innerHeight;
+    prev() {
+      let key = this.playList.prevPageToken;
+      this.getPlayList(key);
     },
-    handleResize2() {
-      this.areaWidth = document.getElementById('videoContents').offsetWidth;
-    },
-
-    pageNext() {
-      this.youtubePlayList(this.videos.nextPageToken);
-    },
-    pagePrev() {
-      this.youtubePlayList(this.videos.prevPageToken);
-    },
-    stop() {
-      document.getElementById('video').src = '';
-    },
-  },
-  watch: {
-    popup() {
-      if (!this.popup) {
-        console.log('Popup Close');
-        this.stop();
-      }
+    next() {
+      let key = this.playList.nextPageToken;
+      this.getPlayList(key);
     },
   },
 };
 </script>
 
 <style>
-.card_contents {
-  position: relative;
-  display: inline-block;
-  box-sizing: border-box;
-  margin: 10px;
-  width: calc(100% / 3 - 20px);
-  height: 17vw;
-  border-radius: 10px;
-  box-shadow: 5 9 black;
-  box-shadow: 10px 5px 5px #ddd;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-@media (max-width: 768px) {
-  .card_contents {
-    width: calc(100% / 2 - 20px);
-    height: 26vw;
-  }
-}
-
-.card_contents:hover {
-  box-shadow: 10px 5px 5px rgb(255, 186, 186);
-}
-
-.thumbNail {
-  width: 100%;
-
-  height: 100%;
-
-  background-size: cover !important;
-}
-
-.blackBack {
-  display: none;
-}
-
-.btnPlay {
-  display: none;
-}
-
-.card_contents:hover .blackBack {
+.video-back {
   position: absolute;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
   top: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  background: #000;
-  opacity: 0.3;
+  left: 0;
 }
 
-.card_contents:hover .btnPlay {
-  position: absolute;
-  top: 50%;
+.video-box:hover .video-back {
+  display: block;
+}
+
+.thumbnail {
+  display: block;
+  width: 100%;
+}
+
+.youtube-ico {
+  position: absolute !important;
+  font-size: 50px !important;
   left: 50%;
+  top: 50%;
   transform: translate(-50%, -50%);
-  display: block;
-  width: 30%;
-  height: 30%;
-  border-radius: 10px;
-  background: url('../../src/assets/img/playBtn.png') no-repeat center center;
-  background-size: contain;
 }
 
-.v-dialog {
-  box-shadow: none !important;
-}
-
-.pagination {
-  width: 100%;
+.btn-wrap {
   text-align: center;
 }
-.pagination li {
-  display: inline-block;
-  font-size: 1.5em;
-  margin: 10px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.pagination li:hover {
-  font-weight: bold;
+.btn-wrap .btn-prev,
+.btn-wrap .btn-next {
+  font-size: 30px;
+  margin: 20px;
 }
 </style>

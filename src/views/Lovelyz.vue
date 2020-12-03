@@ -86,7 +86,7 @@ export default {
       this.selected = val;
     },
     imgClick(url) {
-      this.openPopup(url);
+      this.openImgPopup(url);
     },
   },
 };

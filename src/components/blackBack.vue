@@ -1,7 +1,20 @@
 <template>
   <div v-if="popupState" class="black-back" @click.prevent="popup(false)">
     <div class="popup-contents">
-      <img :src="imgUrl" alt="test" />
+      <img v-if="!_.isEmpty(imgUrl)" :src="imgUrl" alt="test" />
+      <iframe
+        v-if="!_.isEmpty(videoUrl)"
+        class="videoPlayer"
+        type="text/html"
+        :src="`https://www.youtube.com/embed/${videoUrl}?autoplay=1`"
+        frameborder="0"
+        :width="width"
+        :height="width * 0.75"
+        style="max-width:1024px;max-height:640px;padding:20px;"
+        max-width="1024"
+        max-height="768"
+      ></iframe>
+      <!-- 0.5625 -->
       <div class="closeBtn" @click="popup(false)">
         <v-icon color="#fff" size="40px">mdi-close-thick</v-icon>
       </div>
@@ -11,12 +24,15 @@
 
 <script>
 import { mapGetters, mapMutations } from 'vuex';
-import { POPUP, URL } from '@/store/types';
+import { POPUP, IMG_URL, VIDEO_URL } from '@/store/types';
+import { width } from '@/mixins';
 export default {
+  mixins: [width],
   computed: {
     ...mapGetters({
       popupState: POPUP,
-      imgUrl: URL,
+      imgUrl: IMG_URL,
+      videoUrl: VIDEO_URL,
     }),
   },
   methods: {

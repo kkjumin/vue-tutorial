@@ -1,4 +1,5 @@
 export default {
   popup: false,
-  url: '',
+  imgUrl: '',
+  videoUrl: '',
 };

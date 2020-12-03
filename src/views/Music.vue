@@ -3,6 +3,7 @@
     <h1>{{ this.$route.name }}</h1>
 
     <section class="content-view" style="max-width:1000px;">
+      <!-- 앨범 큰 이미지 -->
       <v-card
         class="album-img"
         :width="`${isMobile ? 100 : 48}%`"
@@ -13,6 +14,7 @@
           `background: url('${require(`../assets/img/album/${selectedAlbumDetail.img}`)}') no-repeat center center;background-size:cover;`
         "
       >
+        <!-- 앨범 호버시 뒷배경 -->
         <div class="album-back">
           <v-progress-circular
             :rotate="270"
@@ -29,8 +31,11 @@
             >
           </v-progress-circular>
         </div>
+        <!-- 앨범 호버시 뒷배경 -->
       </v-card>
+      <!-- 앨범 큰 이미지 -->
 
+      <!-- 앨범 디테일 -->
       <v-card
         class="album-detail"
         :width="`${isMobile ? 100 : 48}%`"
@@ -53,6 +58,7 @@
           {{ track.song }}
         </div>
       </v-card>
+      <!-- 앨범 디테일 -->
 
       <!-- 슬라이드 -->
       <div class="album-slide" :style="`width:${slideWidth}px`">
@@ -102,10 +108,13 @@
         </div>
       </div>
       <!-- 슬라이드 -->
+
+      <!-- 오디오 DOM -->
       <audio
         ref="audio"
         :src="`${require(`../assets/mp3/${selectedAlbumDetail.titleSong}`)}`"
       ></audio>
+      <!-- 오디오 DOM -->
     </section>
   </div>
 </template>
@@ -242,10 +251,11 @@ export default {
   position: relative;
   display: block;
   margin: 0 auto;
-  background: #eee;
   border-radius: 20px;
   padding: 10px 40px 10px 40px;
   margin-bottom: 40px;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 }
 .album-list {
   padding: 0;
@@ -276,7 +286,7 @@ export default {
   cursor: pointer;
 }
 .up-arrow {
-  bottom: -25px;
+  bottom: -28px;
   left: 50%;
   transform: translateX(-50%);
 }

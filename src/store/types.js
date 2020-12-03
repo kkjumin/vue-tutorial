@@ -1,2 +1,3 @@
 export const POPUP = 'popup';
-export const URL = 'url';
+export const IMG_URL = 'imgUrl';
+export const VIDEO_URL = 'videoUrl';
