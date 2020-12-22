@@ -1,5 +1,11 @@
-import { YOUTUBE_PLAYLIST, VIDEO } from './types';
-import { GET } from '@/utils';
+import {
+  YOUTUBE_PLAYLIST,
+  VIDEO,
+  UPLOAD_IMG,
+  GET_IMG_LIST,
+  DELETE_IMG,
+} from './types';
+import { DELETE, GET, POST } from '@/utils';
 
 export default {
   [YOUTUBE_PLAYLIST]: async ({ commit }, payload) => {
@@ -27,5 +33,58 @@ export default {
       commit(VIDEO, video);
     }
     return video;
+  },
+
+  [GET_IMG_LIST]: async ({ commit }) => {
+    let result = [];
+    const URL = 'http://localhost:3000/api/files';
+
+    try {
+      const imgList = await GET(URL);
+      result = imgList;
+      commit(GET_IMG_LIST, result);
+    } catch (err) {
+      console.log(err);
+    }
+    return result;
+  },
+
+  [UPLOAD_IMG]: async ({ dispatch }, payload) => {
+    let result;
+    const image = payload.img[0];
+
+    let formData = new FormData();
+    formData.append('img', image, image.name);
+
+    const headers = {
+      'Content-Type': `multipart/form-data; boundary=${formData._boundary}`,
+    };
+
+    try {
+      const URL = 'http://localhost:3000/api/files';
+
+      const upload = await POST(URL, formData, headers);
+      result = upload;
+      dispatch(GET_IMG_LIST);
+    } catch (err) {
+      console.log(err);
+    }
+    return result;
+  },
+
+  [DELETE_IMG]: async ({ dispatch }, payload) => {
+    let result;
+    let imgName = payload;
+    console.log(imgName);
+    const URL = 'http://localhost:3000/api/files';
+    try {
+      const deleteImg = await DELETE(URL, { name: imgName });
+      result = deleteImg;
+    } catch (error) {
+      console.log(error);
+    } finally {
+      dispatch(GET_IMG_LIST);
+    }
+    return result;
   },
 };

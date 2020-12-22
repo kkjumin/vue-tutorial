@@ -81,6 +81,7 @@ export default {
       { name: 'Lovelyz', icon: 'mdi-flower-poppy' },
       { name: 'Music', icon: 'mdi-music' },
       { name: 'Video', icon: 'mdi-youtube' },
+      { name: 'ImageUpload', icon: 'mdi-image-plus' },
     ],
   }),
 
@@ -89,6 +90,8 @@ export default {
       return tabName => tabName === this.$route.name && 'tabOn';
     },
   },
+
+  created() {},
 
   methods: {
     linkTo(params) {

@@ -83,6 +83,13 @@ const routes = [
     props: true,
     meta: { name: 'Music' },
   },
+  {
+    path: '/upload',
+    name: 'ImageUpload',
+    component: () => import('../views/ImageUpload.vue'),
+    props: true,
+    meta: { name: 'ImageUpload' },
+  },
 ];
 
 const router = new VueRouter({

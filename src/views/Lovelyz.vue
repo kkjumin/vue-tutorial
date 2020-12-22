@@ -3,68 +3,12 @@
     <h1>{{ this.$route.name }}</h1>
 
     <div class="content-view" style="max-width:1200px; margin:0 auto;">
-      <div style=" margin-bottom:50px">
-        <ul style="padding:0;display:block;height:18vw;max-height: 250px;">
-          <li
-            v-for="mem in members"
-            :key="mem.name"
-            @click="select(mem)"
-            class="mem"
-            :class="selectedOn(mem.name)"
-            :style="
-              `background:url('${mem.profileImg}')no-repeat center center;background-size:cover;`
-            "
-          ></li>
-        </ul>
-      </div>
-
-      <!-- 프로필 -->
-      <div v-if="!_.isEmpty(selected)" class="profile">
-        <div class="profile-pic">
-          <img
-            :src="selected.profileImg"
-            :alt="selected.name"
-            @click="imgClick(selected.profileImg)"
-          />
-        </div>
-        <div class="profile-detail">
-          detail detail detail detail detail detail detail detail detail detail
-          detail detail detail detail detail detail detail detail detail detail
-          detail detail detail detail detail detail detail detail detail detail
-          detail detail detail detail detail detail
-        </div>
-      </div>
-
-      <!-- 이미지 그리드 -->
-      <div class="img-greed" v-if="!_.isEmpty(selected)">
-        <v-row>
-          <v-col
-            v-for="(img, i) in selected.img"
-            :key="i"
-            class="d-flex child-flex"
-            :cols="isMobile ? 6 : 4"
-          >
-            <v-img
-              :src="img"
-              lazy-src="https://picsum.photos/id/11/100/60"
-              aspect-ratio="0.7"
-              class="grey lighten-2 mem-img"
-              style="cursor:pointer;"
-              @click="imgClick(img)"
-            >
-              <template v-slot:placeholder>
-                <v-row class="fill-height ma-0" align="center" justify="center">
-                  <v-progress-circular
-                    indeterminate
-                    color="red lighten-5"
-                  ></v-progress-circular>
-                </v-row>
-              </template>
-            </v-img>
-          </v-col>
-        </v-row>
-      </div>
-      <!-- 이미지 그리드 -->
+      <v-img
+        v-for="n in 8"
+        :key="n"
+        lazy-src="https://picsum.photos/id/11/10/6"
+        src="https://picsum.photos/id/11/500/300"
+      ></v-img>
     </div>
   </div>
 </template>

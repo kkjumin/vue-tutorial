@@ -30,7 +30,6 @@ export default {
       if (browser.includes('mobile') || browser.includes('chrome')) {
         isChrome = true;
       }
-      console.log(isChrome);
       return isChrome;
     },
   },
