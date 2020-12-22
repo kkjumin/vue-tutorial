@@ -5,6 +5,7 @@
     <section class="content-view" style="max-width:1000px;">
       <!-- 앨범 큰 이미지 -->
       <v-card
+        id="albumImg"
         class="album-img"
         :width="`${isMobile ? 100 : 48}%`"
         :height="`${isMobile ? 90 : 45}vw`"
@@ -54,6 +55,8 @@
           v-for="(track, i) in selectedAlbumDetail.tracklist"
           :key="i"
           style="margin-bottom:4px;margin-left:20px;"
+          class="songList"
+          ref="songList"
         >
           {{ track.song }}
         </div>
@@ -157,6 +160,9 @@ export default {
     startPoint() {
       return parseInt(this.albumCount / 2) * this.contentWidth;
     },
+    songList() {
+      return this.selectedAlbumDetail.tracklist;
+    },
   },
   created() {
     this.initAlbum();
@@ -220,11 +226,37 @@ export default {
       this.$refs.audio.pause();
       this.$refs.audio.currentTime = 0;
     },
+    rotateImg() {
+      const albumImg = document.getElementById('albumImg');
+      albumImg.animate(
+        //keyframe
+        [{ transform: 'rotateY(360deg)' }],
+        //timing options
+        {
+          duration: 500,
+          // iterations: Infinity,
+        },
+      );
+    },
+    rotateText() {
+      let songList = document.getElementsByClassName('songList');
+
+      for (let i = 0; i < this.songList.length || 0; i++) {
+        setTimeout(() => {
+          songList[i]?.animate([{ transform: 'rotateX(360deg)' }], {
+            duration: 300,
+          });
+        }, 50 * (i + 1));
+      }
+    },
   },
   watch: {
     selectedAlbum() {
-      console.log(this.selectedAlbum);
       this.initInterval();
+      this.rotateImg();
+    },
+    songList() {
+      this.rotateText();
     },
   },
 };
@@ -241,6 +273,7 @@ export default {
 }
 .album-img {
   cursor: pointer;
+  transition: 0.3s;
 }
 .album-detail {
   padding: 15px;
