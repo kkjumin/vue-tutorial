@@ -37,7 +37,7 @@ export default {
 
   [GET_IMG_LIST]: async ({ commit }) => {
     let result = [];
-    const URL = 'http://localhost:3000/api/files';
+    const URL = '/api/files';
 
     try {
       const imgList = await GET(URL);
@@ -61,7 +61,7 @@ export default {
     };
 
     try {
-      const URL = 'http://localhost:3000/api/files';
+      const URL = '/api/files';
 
       const upload = await POST(URL, formData, headers);
       result = upload;
@@ -76,7 +76,7 @@ export default {
     let result;
     let imgName = payload;
     console.log(imgName);
-    const URL = 'http://localhost:3000/api/files';
+    const URL = '/api/files';
     try {
       const deleteImg = await DELETE(URL, { name: imgName });
       result = deleteImg;
