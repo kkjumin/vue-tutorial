@@ -47,6 +47,7 @@
     <black-back />
     <floating-btn />
     <alert />
+    <alert-popup />
   </v-app>
 </template>
 
@@ -55,6 +56,7 @@ import CurrentTime from '@/components/currentTime';
 import BlackBack from './components/blackBack.vue';
 import FloatingBtn from './components/FloatingBtn.vue';
 import Alert from './components/Alert.vue';
+import AlertPopup from './components/AlertPopup.vue';
 
 export default {
   components: {
@@ -62,6 +64,7 @@ export default {
     BlackBack,
     FloatingBtn,
     Alert,
+    AlertPopup,
   },
   props: {
     source: String,

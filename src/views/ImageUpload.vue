@@ -67,8 +67,10 @@
 import * as lovelyz from '@/store/modules/lovelyz';
 import ConfirmPopup from '@/components/ConfirmPopup.vue';
 import ProgressCircular from '@/components/ProgressCircular.vue';
+import { alertPopup } from '@/mixins';
 
 export default {
+  mixins: [alertPopup],
   components: { ConfirmPopup, ProgressCircular },
 
   data() {
@@ -99,20 +101,18 @@ export default {
     }),
     submit() {
       if (!this.files) {
-        alert('첨부된 이미지가 없습니다.');
+        this.alert('첨부된 이미지가 없습니다.');
         return;
       }
       if (!this.files.type.includes('image')) {
-        alert('첨부된 파일이 image 파일이 아닙니다.');
+        this.alert('첨부된 파일이 image 파일이 아닙니다.');
+        return;
       }
-
-      // file 데이터를 배열에 감싸서보내야함
-      // this.uploadImg({ img: [this.files] });
 
       this.progressShow = true;
       this.uploadImg({ img: [this.files] }).then(result => {
         this.progressShow = false;
-        alert(result.message);
+        this.alert(result.message);
       });
 
       this.files = null;
@@ -127,7 +127,7 @@ export default {
       this.progressShow = true;
       this.deleteImg(this.selectedItem.name).then(result => {
         this.progressShow = false;
-        alert(result.message);
+        this.alert(result.message);
       });
       this.selectedItem = {};
     },

@@ -1,4 +1,11 @@
-import { POPUP, IMG_URL, VIDEO_URL } from './types';
+import {
+  POPUP,
+  IMG_URL,
+  VIDEO_URL,
+  ALERT_SHOW,
+  ALERT_TEXT,
+  ALERT,
+} from './types';
 
 export default {
   [POPUP]: (state, payload) => {
@@ -13,5 +20,18 @@ export default {
   },
   [VIDEO_URL]: (state, payload) => {
     state.videoUrl = payload;
+  },
+
+  [ALERT_SHOW]: (state, payload) => {
+    state.alertShow = payload;
+  },
+
+  [ALERT_TEXT]: (state, payload) => {
+    state.alertText = payload;
+  },
+
+  [ALERT]: (state, payload) => {
+    state.alertShow = payload.show;
+    state.alertText = payload.text;
   },
 };
