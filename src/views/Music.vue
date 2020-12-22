@@ -8,7 +8,7 @@
         id="albumImg"
         class="album-img"
         :width="`${isMobile ? 100 : 48}%`"
-        :height="`${isMobile ? 90 : 45}vw`"
+        :height="`${isMobile ? 90 : 50}vw`"
         max-height="460px"
         max-width="460px"
         :style="
@@ -40,10 +40,10 @@
       <v-card
         class="album-detail"
         :width="`${isMobile ? 100 : 48}%`"
-        :height="`${isMobile ? 'auto' : '45vw'}`"
+        :height="`${isMobile ? 'auto' : '50vw'}`"
         :max-height="`${isMobile ? '' : '460px'}`"
         max-width="460px"
-        :style="`float:left;margin-left:${isMobile ? 0 : 4}%`"
+        :style="`float:left;margin-left:${isMobile ? 0 : 4}%;`"
       >
         <p
           style="text-align:center;font-size:20px;font-weight:bold;margin-bottom:12px;"
